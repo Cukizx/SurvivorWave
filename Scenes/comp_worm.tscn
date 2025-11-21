@@ -1,0 +1,155 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnrs4x0ku7ga4"]
+
+[ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_nfmgh"]
+[ext_resource type="Texture2D" uid="uid://yqeyqn0ah6dy" path="res://Sprites/Enemies_C0mpW12m.png" id="2_nfmgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rwtq"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1lud"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ibox"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r56d"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg7v6"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wms0"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqqu8"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr40k"]
+atlas = ExtResource("2_nfmgh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_haro7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rwtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1lud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ibox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r56d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg7v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wms0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqqu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr40k")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 14.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfmgh"]
+radius = 5.0
+height = 18.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["big_worm"]]
+collision_layer = 4
+collision_mask = 12
+script = ExtResource("1_nfmgh")
+spawn_enemy = true
+spawn_enemy_index = 1
+spawn_enemy_quantity = 3
+health = 150
+speed = 50.0
+contact_damage = 3
+inv_seconds = 0.1
+damage_numbers = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(41.588467, 41.588467)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_haro7")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.612518
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_56vhr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+neighbor_distance = 100.0
+max_neighbors = 3
+max_speed = 150.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 1, 0.28235295)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="CollisionCheckArea" type="Area2D" parent="." groups=["enemies"]]
+collision_layer = 4
+collision_mask = 16
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionCheckArea"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_nfmgh")
+
+[node name="Collision__" type="CollisionShape2D" parent="CollisionCheckArea"]
+visible = false
+position = Vector2(-9, 3)
+shape = SubResource("CapsuleShape2D_56vhr")
+disabled = true
+
+[node name="Rays" type="Node2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="Front" type="RayCast2D" parent="Rays"]
+target_position = Vector2(40, 0)
+collision_mask = 4
+
+[node name="Up 1" type="RayCast2D" parent="Rays"]
+rotation = 0.5235988
+target_position = Vector2(40, 0)
+
+[node name="Down 1" type="RayCast2D" parent="Rays"]
+rotation = -0.5235988
+target_position = Vector2(40, 0)
+
+[node name="Up 2" type="RayCast2D" parent="Rays"]
+rotation = 1.0471976
+target_position = Vector2(40, 0)
+
+[node name="Down 2" type="RayCast2D" parent="Rays"]
+rotation = -1.0471976
+target_position = Vector2(40, 0)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]

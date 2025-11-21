@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3bpawjyy1f86"]
+
+[ext_resource type="Script" uid="uid://bva77ctdyr2yo" path="res://Scripts/weapon_manager.gd" id="1_dq217"]
+
+[node name="Weapon Manager" type="Node2D"]
+script = ExtResource("1_dq217")
+
+[node name="Bullet Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Seeker Bullet Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Bullet Timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="Seeker Bullet Timer" to="." method="_on_seeker_bullet_timer_timeout"]

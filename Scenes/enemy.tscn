@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5740jeg75a5u"]
+
+[ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_hghv2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
+radius = 5.0
+height = 14.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_hghv2")
+health = 100
+speed = 50.0
+contact_damage = 1
+inv_seconds = 0.1
+damage_numbers = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(41.588467, 41.588467)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+animation = &""
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_56vhr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 5.0
+neighbor_distance = 100.0
+max_neighbors = 3
+max_speed = 150.0
+debug_path_custom_color = Color(1, 0, 1, 0.28235295)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="CollisionCheckArea" type="Area2D" parent="." groups=["enemies"]]
+collision_layer = 4
+collision_mask = 16
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionCheckArea"]
+shape = SubResource("CapsuleShape2D_56vhr")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcliao6g41v6o"]
+
+[ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_hvlcn"]
+[ext_resource type="Texture2D" uid="uid://cxulea1ec0lc2" path="res://Sprites/Enemies_13ug.png" id="2_wsu11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x8va"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sukcn"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unq4r"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu13y"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cokhp"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fadc"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt0ud"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d865a"]
+atlas = ExtResource("2_wsu11")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_relc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x8va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sukcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unq4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu13y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cokhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fadc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt0ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d865a")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 14.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsu11"]
+radius = 7.0
+height = 16.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["bug"]]
+z_index = 1
+collision_layer = 64
+collision_mask = 72
+script = ExtResource("1_hvlcn")
+health = 100
+speed = 80.0
+contact_damage = 1
+inv_seconds = 0.1
+damage_numbers = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(41.588467, 41.588467)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_relc2")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_56vhr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 20.0
+neighbor_distance = 100.0
+max_neighbors = 2
+max_speed = 150.0
+avoidance_layers = 2
+avoidance_mask = 2
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 1, 0.28235295)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="CollisionCheckArea" type="Area2D" parent="." groups=["enemies"]]
+collision_layer = 4
+collision_mask = 16
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionCheckArea"]
+visible = false
+shape = SubResource("CapsuleShape2D_56vhr")
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionCheckArea"]
+shape = SubResource("CapsuleShape2D_wsu11")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]

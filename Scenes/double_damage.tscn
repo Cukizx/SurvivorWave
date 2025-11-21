@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dop6is4adx358"]
+
+[ext_resource type="Texture2D" uid="uid://dti73o7k38eo2" path="res://Sprites/double_damage_pickup.png" id="1_38uq1"]
+[ext_resource type="Script" uid="uid://dum1xm7jd7350" path="res://Scripts/double_damage.gd" id="1_r3hgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y3xm"]
+size = Vector2(16, 10)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 32
+collision_mask = 10
+script = ExtResource("1_r3hgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_38uq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4y3xm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
