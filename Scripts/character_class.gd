@@ -11,6 +11,7 @@ class_name Character
 
 @onready var collision: CollisionShape2D = self.get_node("CollisionCheckArea/Collision")
 @onready var collision_area: Area2D = collision.get_parent()
+var hit_particles = null
 
 var damage_num = preload("res://Scenes/damage_numbers.tscn")
 
@@ -22,13 +23,21 @@ func invincibility(seconds: float):
 	is_invincible = false
 
 func take_damage(damage):
+	if self is Player:
+		hit_particles = self.get_node("HitParticles")
 	while collision_area.has_overlapping_bodies() or collision_area.has_overlapping_areas() and !is_invincible:
 		health -= damage
+		if hit_particles:
+			hit_particles.emitting = true
 		if damage_numbers:
 			show_damage(damage)
 		if health <= 0:
+			if hit_particles:
+				hit_particles.emitting = false
 			return
 		await invincibility(inv_seconds)
+	if hit_particles:
+		hit_particles.emitting = false
 
 func show_damage(damage: float):
 	var damage_number = damage_num.instantiate()

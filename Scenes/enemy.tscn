@@ -1,15 +1,74 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5740jeg75a5u"]
+[gd_scene load_steps=10 format=3 uid="uid://b5740jeg75a5u"]
 
 [ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_hghv2"]
+[ext_resource type="Shader" uid="uid://15hhj7upwxb0" path="res://Shaders/hit_flash.tres" id="2_1f0kj"]
+[ext_resource type="PackedScene" uid="uid://bs1228sphs1eo" path="res://Scenes/experience.tscn" id="2_afpow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afpow"]
+resource_local_to_scene = true
+shader = ExtResource("2_1f0kj")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f0kj"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"death",
+"speed": 16.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
-radius = 5.0
-height = 14.0
+radius = 8.0
+height = 20.0
+
+[sub_resource type="Animation" id="Animation_0r56d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0ibox"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lg7v6"]
+_data = {
+&"RESET": SubResource("Animation_0r56d"),
+&"hit_flash": SubResource("Animation_0ibox")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 8
+collision_mask = 12
 script = ExtResource("1_hghv2")
+experience_dropped = ExtResource("2_afpow")
 health = 100
 speed = 50.0
 contact_damage = 1
@@ -17,26 +76,17 @@ inv_seconds = 0.1
 damage_numbers = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(41.588467, 41.588467)
+rect = Rect2(-420, -420, 840, 840)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-animation = &""
+material = SubResource("ShaderMaterial_afpow")
+sprite_frames = SubResource("SpriteFrames_1f0kj")
+animation = &"walk"
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_56vhr")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-radius = 5.0
-neighbor_distance = 100.0
-max_neighbors = 3
-max_speed = 150.0
-debug_path_custom_color = Color(1, 0, 1, 0.28235295)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionCheckArea" type="Area2D" parent="." groups=["enemies"]]
 collision_layer = 4
@@ -44,8 +94,12 @@ collision_mask = 16
 
 [node name="Collision" type="CollisionShape2D" parent="CollisionCheckArea"]
 shape = SubResource("CapsuleShape2D_56vhr")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lg7v6")
+}
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]

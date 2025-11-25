@@ -6,7 +6,7 @@
 script = ExtResource("1_dq217")
 
 [node name="Bullet Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.030000000000000002
 autostart = true
 
 [node name="Seeker Bullet Timer" type="Timer" parent="."]

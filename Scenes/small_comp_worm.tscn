@@ -1,7 +1,48 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0jvfh2sma5ex"]
+[gd_scene load_steps=30 format=3 uid="uid://b0jvfh2sma5ex"]
 
 [ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_bmhs1"]
 [ext_resource type="Texture2D" uid="uid://f6jkdom8kjkm" path="res://Sprites/Enemies_Sm0lC0mp12m.png" id="2_g1pvy"]
+[ext_resource type="PackedScene" uid="uid://bs1228sphs1eo" path="res://Scenes/experience.tscn" id="2_mruq1"]
+[ext_resource type="Shader" uid="uid://15hhj7upwxb0" path="res://Shaders/hit_flash.tres" id="2_thvip"]
+[ext_resource type="Texture2D" uid="uid://c7xt3lybuodf3" path="res://Sprites/Enemies_Sm0lC0mp12m_Death.png" id="3_pbf0f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbf0f"]
+resource_local_to_scene = true
+shader = ExtResource("2_thvip")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g4lf"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bildc"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxwpt"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnkmd"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdqx0"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x88b5"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uib4t"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3eto"]
+atlas = ExtResource("3_pbf0f")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thvip"]
 atlas = ExtResource("2_g1pvy")
@@ -39,6 +80,38 @@ region = Rect2(224, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7g4lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bildc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxwpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnkmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdqx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x88b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uib4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3eto")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_thvip")
 }, {
 "duration": 1.0,
@@ -64,20 +137,61 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 14.0
+"speed": 16.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_thvip"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
-height = 20.0
+radius = 4.0
+height = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1pvy"]
 radius = 5.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_0r56d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0ibox"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lg7v6"]
+_data = {
+&"RESET": SubResource("Animation_0r56d"),
+&"hit_flash": SubResource("Animation_0ibox")
+}
+
 [node name="Enemy" type="CharacterBody2D" groups=["small_worm"]]
 collision_layer = 4
 collision_mask = 12
 script = ExtResource("1_bmhs1")
+experience_dropped = ExtResource("2_mruq1")
 health = 70
 speed = 60.0
 contact_damage = 1
@@ -85,9 +199,10 @@ inv_seconds = 0.1
 damage_numbers = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(41.588467, 41.588467)
+rect = Rect2(-420, -420, 840, 840)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_pbf0f")
 sprite_frames = SubResource("SpriteFrames_7g4lf")
 animation = &"walk"
 autoplay = "walk"
@@ -95,19 +210,8 @@ autoplay = "walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_56vhr")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-neighbor_distance = 100.0
-max_neighbors = 3
-max_speed = 150.0
-debug_enabled = true
-debug_path_custom_color = Color(1, 0, 1, 0.28235295)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
+shape = SubResource("CircleShape2D_thvip")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionCheckArea" type="Area2D" parent="." groups=["enemies"]]
 collision_layer = 4
@@ -119,36 +223,18 @@ position = Vector2(0, 3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_56vhr")
 disabled = true
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionCheckArea"]
 position = Vector2(0, 3)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_g1pvy")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Rays" type="Node2D" parent="."]
-position = Vector2(0, 4)
-
-[node name="Front" type="RayCast2D" parent="Rays"]
-target_position = Vector2(40, 0)
-collision_mask = 4
-
-[node name="Up 1" type="RayCast2D" parent="Rays"]
-rotation = 0.5235988
-target_position = Vector2(40, 0)
-
-[node name="Down 1" type="RayCast2D" parent="Rays"]
-rotation = -0.5235988
-target_position = Vector2(40, 0)
-
-[node name="Up 2" type="RayCast2D" parent="Rays"]
-rotation = 1.0471976
-target_position = Vector2(40, 0)
-
-[node name="Down 2" type="RayCast2D" parent="Rays"]
-rotation = -1.0471976
-target_position = Vector2(40, 0)
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lg7v6")
+}
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]

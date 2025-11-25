@@ -1,0 +1,222 @@
+[gd_scene load_steps=27 format=3 uid="uid://iuqokfdpndi8"]
+
+[ext_resource type="PackedScene" uid="uid://b5740jeg75a5u" path="res://Scenes/enemy.tscn" id="1_7o3t4"]
+[ext_resource type="Texture2D" uid="uid://ck2nepgj57s1q" path="res://Sprites/Enemies_Ph1sh1ng.png" id="2_1l3qh"]
+[ext_resource type="Texture2D" uid="uid://dit86xr323edy" path="res://Sprites/Enemies_Ph1sh1ng_Death.png" id="2_2fqxv"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_2fqxv"]
+parameter_name = "Tint"
+default_value_enabled = true
+default_value = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_h83u8"]
+parameter_name = "Enabled"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_dfgks"]
+default_input_values = [0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ao8h5"]
+input_name = "color"
+
+[sub_resource type="VisualShader" id="VisualShader_kd0nk"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool Enabled = false;
+uniform vec4 Tint : source_color = vec4(18.892157, 18.892157, 18.892157, 1.000000);
+
+
+
+void vertex() {
+// BooleanParameter:3
+	bool n_out3p0 = Enabled;
+
+
+// ColorParameter:2
+	vec4 n_out2p0 = Tint;
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec3 n_out4p0;
+// If:4
+	float n_in4p1 = 1.00000;
+	float n_in4p2 = 0.00001;
+	if(abs((n_out3p0 ? 1.0 : 0.0) - n_in4p1) < n_in4p2)
+	{
+		n_out4p0 = vec3(n_out2p0.xyz);
+	}
+	else if((n_out3p0 ? 1.0 : 0.0) < n_in4p1)
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+	else
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+
+
+// Output:0
+	COLOR.rgb = n_out4p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(480, 120)
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_2fqxv")
+nodes/vertex/2/position = Vector2(-120, 100)
+nodes/vertex/3/node = SubResource("VisualShaderNodeBooleanParameter_h83u8")
+nodes/vertex/3/position = Vector2(-100, -100)
+nodes/vertex/4/node = SubResource("VisualShaderNodeIf_dfgks")
+nodes/vertex/4/position = Vector2(240, -100)
+nodes/vertex/5/node = SubResource("VisualShaderNodeInput_ao8h5")
+nodes/vertex/5/position = Vector2(-100, 360)
+nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 2, 5, 0, 4, 4, 5, 0, 4, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvb4p"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_kd0nk")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h83u8"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfgks"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao8h5"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd0nk"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvb4p"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr001"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pcuw"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc7eh"]
+atlas = ExtResource("2_2fqxv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s7ah"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_711gi"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv2uc"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr70y"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12r47"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sa3u"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3stu"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k76y4"]
+atlas = ExtResource("2_1l3qh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lr001"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h83u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfgks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao8h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd0nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvb4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr001")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pcuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc7eh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s7ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_711gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv2uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr70y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12r47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sa3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3stu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76y4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 32.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_7o3t4")]
+speed = 100.0
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_nvb4p")
+sprite_frames = SubResource("SpriteFrames_lr001")
+animation = &"death"

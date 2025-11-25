@@ -1,6 +1,7 @@
 extends Node
 
 var player_pos: Vector2
+var player: Player
 var camera_center: Vector2
 var camera_size: Rect2
 var player_dir: Vector2

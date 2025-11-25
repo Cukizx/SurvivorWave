@@ -6,7 +6,7 @@
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4l55s")
-max_enemy = 300
+max_enemy_default = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

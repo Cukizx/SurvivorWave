@@ -14,4 +14,4 @@ func picked_up(duration: float = 0):
 	var children = get_children()
 	for child in children.size():
 		children[child].queue_free()
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration, false).timeout

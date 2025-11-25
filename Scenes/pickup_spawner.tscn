@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c35x3dgt6y1n8" path="res://Scripts/pickup_spawner.gd" id="1_lti16"]
 
 [node name="PickupSpawner" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_lti16")
 max_pickups = 10
 
