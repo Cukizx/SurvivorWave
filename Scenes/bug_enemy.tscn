@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dcliao6g41v6o"]
+[gd_scene load_steps=29 format=3 uid="uid://dcliao6g41v6o"]
 
 [ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_hvlcn"]
 [ext_resource type="Shader" uid="uid://15hhj7upwxb0" path="res://Shaders/hit_flash.tres" id="2_7x8va"]
@@ -143,10 +143,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7x8va"]
 radius = 16.03122
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
-radius = 4.0
-height = 8.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsu11"]
 radius = 7.0
 height = 16.0
@@ -218,12 +214,6 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="Collision" type="CollisionShape2D" parent="CollisionCheckArea"]
-visible = false
-shape = SubResource("CapsuleShape2D_56vhr")
-disabled = true
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionCheckArea"]
 shape = SubResource("CapsuleShape2D_wsu11")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 

@@ -1,0 +1,229 @@
+[gd_scene load_steps=28 format=3 uid="uid://y6xx4uyi88lr"]
+
+[ext_resource type="PackedScene" uid="uid://b5740jeg75a5u" path="res://Scenes/enemy.tscn" id="1_rypll"]
+[ext_resource type="Texture2D" uid="uid://dkomhkubj528m" path="res://Sprites/Enemies_Thing_Death.png" id="2_5nyo2"]
+[ext_resource type="Texture2D" uid="uid://buk7yyonxnjw3" path="res://Sprites/Enemies_Thing.png" id="3_xj2uq"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_p4c8f"]
+parameter_name = "Tint"
+default_value_enabled = true
+default_value = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_cwqxh"]
+parameter_name = "Enabled"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_f8llw"]
+default_input_values = [0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_tgblr"]
+input_name = "color"
+
+[sub_resource type="VisualShader" id="VisualShader_wvyb1"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform bool Enabled = false;
+uniform vec4 Tint : source_color = vec4(18.892157, 18.892157, 18.892157, 1.000000);
+
+
+
+void vertex() {
+// BooleanParameter:3
+	bool n_out3p0 = Enabled;
+
+
+// ColorParameter:2
+	vec4 n_out2p0 = Tint;
+
+
+// Input:5
+	vec4 n_out5p0 = COLOR;
+
+
+	vec3 n_out4p0;
+// If:4
+	float n_in4p1 = 1.00000;
+	float n_in4p2 = 0.00001;
+	if(abs((n_out3p0 ? 1.0 : 0.0) - n_in4p1) < n_in4p2)
+	{
+		n_out4p0 = vec3(n_out2p0.xyz);
+	}
+	else if((n_out3p0 ? 1.0 : 0.0) < n_in4p1)
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+	else
+	{
+		n_out4p0 = vec3(n_out5p0.xyz);
+	}
+
+
+// Output:0
+	COLOR.rgb = n_out4p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(480, 120)
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_p4c8f")
+nodes/vertex/2/position = Vector2(-120, 100)
+nodes/vertex/3/node = SubResource("VisualShaderNodeBooleanParameter_cwqxh")
+nodes/vertex/3/position = Vector2(-100, -100)
+nodes/vertex/4/node = SubResource("VisualShaderNodeIf_f8llw")
+nodes/vertex/4/position = Vector2(240, -100)
+nodes/vertex/5/node = SubResource("VisualShaderNodeInput_tgblr")
+nodes/vertex/5/position = Vector2(-100, 360)
+nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 2, 5, 0, 4, 4, 5, 0, 4, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjg7p"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_wvyb1")
+shader_parameter/Enabled = false
+shader_parameter/Tint = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cftlv"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udngi"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etkk6"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6wgi"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owell"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1mlm"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3qsy"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46cgf"]
+atlas = ExtResource("2_5nyo2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqqdi"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1um8"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glop5"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lq7v"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mkli"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jkii"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54vqx"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnx6q"]
+atlas = ExtResource("3_xj2uq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htjc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cftlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udngi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etkk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6wgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owell")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1mlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3qsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46cgf")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqqdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1um8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glop5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lq7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mkli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jkii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54vqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnx6q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1xfs"]
+radius = 18.027756
+
+[node name="Enemy" instance=ExtResource("1_rypll")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_cjg7p")
+sprite_frames = SubResource("SpriteFrames_htjc8")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_n1xfs")
+
+[node name="Collision" parent="CollisionCheckArea" index="0"]
+rotation = -0.7853982

@@ -41,10 +41,7 @@ func _physics_process(_delta: float) -> void:
 			direction = self.global_position.direction_to(target.global_position)
 		velocity = direction * speed
 		move_and_slide()
-		#queue_redraw()
 
-func _draw() -> void:
-	draw_line(Vector2.ZERO, direction * 100, Color.WHITE)
 
 func _on_collision_check_area_area_entered(area: Bullet) -> void:
 	if !dead:

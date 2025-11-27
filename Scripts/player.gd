@@ -9,6 +9,10 @@ var is_dead = false
 var experience: int = 0
 
 @onready var sprite = $AnimatedSprite2D
+@onready var health_bar = $HealthBar
+@onready var max_health: float = health
+
+signal experience_gained(experience_amount)
 
 func _ready() -> void:
 	Globals.player = self
@@ -28,14 +32,14 @@ func _physics_process(delta: float) -> void:
 			var direction_x := Input.get_axis("left", "right")
 			var direction_y := Input.get_axis("up", "down")
 			direction = Vector2(direction_x, direction_y).normalized()
-			if direction == Vector2.ZERO:
-				sprite.play("idle")
-			else:
-				sprite.play("walking")
-			if direction.x > 0:
-				sprite.flip_h = true
-			else:
-				sprite.flip_h = false
+			if direction == Vector2.ZERO and sprite.animation == "walking_left":
+				sprite.play("idle_left")
+			elif direction == Vector2.ZERO and sprite.animation == "walking_right":
+				sprite.play("idle_right")
+			elif direction.x > 0 or direction.y != 0 and sprite.animation == "idle_right":
+				sprite.play("walking_right")
+			elif direction.x <0 or direction.y != 0 and sprite.animation == "idle_left":
+				sprite.play("walking_left")
 			move(direction)
 		move_and_slide()
 		
@@ -46,7 +50,7 @@ func _on_collision_check_area_body_entered(body: Node2D) -> void:
 	if !Globals.enemy_stop:
 		if !is_invincible and !is_dead:
 			take_damage(body.contact_damage)
-			print(health)
+			health_bar.value = (health / max_health) * 100
 			no_hit_time = 0.0
 			Globals.no_hit_time = no_hit_time
 	if health <= 0:
@@ -54,7 +58,7 @@ func _on_collision_check_area_body_entered(body: Node2D) -> void:
 
 func get_experience(experience_points: int):
 	experience += experience_points
-	print("Current exp: ", experience)
+	experience_gained.emit(experience)
 
 func death():
 	is_dead = true

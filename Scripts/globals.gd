@@ -10,6 +10,7 @@ var player_damage_multiplier: float = 1.0
 var enemy_stop: bool = false
 var enemy_stop_duration: float = 0.0
 var no_hit_time: float = 0.0
+var player_experience: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdarh4trfxe8b"]
+[gd_scene load_steps=35 format=3 uid="uid://cdarh4trfxe8b"]
 
 [ext_resource type="PackedScene" uid="uid://b5740jeg75a5u" path="res://Scenes/enemy.tscn" id="1_mm73b"]
 [ext_resource type="Texture2D" uid="uid://s1sedmo7n508" path="res://Sprites/Enemies_R00tk1t_Death.png" id="2_e3jn2"]
 [ext_resource type="Script" uid="uid://dr0qhqg816pn3" path="res://Scripts/rootkit_enemy.gd" id="2_rqetl"]
 [ext_resource type="Shader" uid="uid://15hhj7upwxb0" path="res://Shaders/hit_flash.tres" id="3_ap1hg"]
 [ext_resource type="Texture2D" uid="uid://d3honvw4cbo44" path="res://Sprites/Enemies_R00tk1t.png" id="3_rqetl"]
+[ext_resource type="Texture2D" uid="uid://c87etc33u76hu" path="res://Sprites/Enemies_R00tk1t_Invisible.png" id="5_ap1hg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fw4x7"]
 resource_local_to_scene = true
@@ -42,6 +43,38 @@ region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfus4"]
 atlas = ExtResource("2_e3jn2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f84b2"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb0fw"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33eyh"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n3cv"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocudh"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etcst"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne5ss"]
+atlas = ExtResource("5_ap1hg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ubq1"]
+atlas = ExtResource("5_ap1hg")
 region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au5fa"]
@@ -112,6 +145,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f84b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb0fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33eyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n3cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocudh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etcst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne5ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ubq1")
+}],
+"loop": true,
+"name": &"invisible_shimmer",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_au5fa")
 }, {
 "duration": 1.0,
@@ -144,7 +206,8 @@ animations = [{
 radius = 14.035668
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3jn2"]
-radius = 208.00241
+resource_local_to_scene = true
+radius = 150.0
 
 [node name="Enemy" instance=ExtResource("1_mm73b")]
 script = ExtResource("2_rqetl")
@@ -155,22 +218,20 @@ inv_seconds = 5.0
 is_invincible = true
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-visible = false
 material = SubResource("ShaderMaterial_fw4x7")
 sprite_frames = SubResource("SpriteFrames_f84b2")
-animation = &"death"
+animation = &"invisible_shimmer"
+autoplay = "invisible_shimmer"
 offset = Vector2(0, -2.645)
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_yv5je")
 disabled = true
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision" parent="CollisionCheckArea" index="0"]
 position = Vector2(1.0000001, 2.0000002)
 rotation = 0.2617994
 disabled = true
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="TurnVisibleArea" type="Area2D" parent="." index="5"]
 collision_layer = 128

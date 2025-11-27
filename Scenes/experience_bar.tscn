@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqp6kuk0jx88l"]
+
+[ext_resource type="Script" uid="uid://bkyd6gti1qeqi" path="res://experience_bar.gd" id="1_y04v7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdg7b"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.70980394)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y04v7"]
+bg_color = Color(0.36078432, 0.5921569, 0.9137255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_00fqw"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_hdg7b")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_y04v7")
+
+[node name="ExperienceBar" type="ProgressBar"]
+anchors_preset = -1
+anchor_right = 0.467
+anchor_bottom = 0.042000003
+offset_right = 0.11999512
+offset_bottom = -0.12000084
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_00fqw")
+step = 2.0
+show_percentage = false
+script = ExtResource("1_y04v7")

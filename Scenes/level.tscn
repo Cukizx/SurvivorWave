@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=4 uid="uid://lsmil0igguv1"]
+[gd_scene load_steps=36 format=4 uid="uid://lsmil0igguv1"]
 
 [ext_resource type="PackedScene" uid="uid://c3bpawjyy1f86" path="res://Scenes/weapon_manager.tscn" id="1_0f350"]
+[ext_resource type="PackedScene" uid="uid://cqp6kuk0jx88l" path="res://Scenes/experience_bar.tscn" id="1_pnhnk"]
 [ext_resource type="PackedScene" uid="uid://vs3rwicdprxk" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://l40xy2vipiil" path="res://Scripts/camera.gd" id="2_k5f4k"]
 [ext_resource type="Texture2D" uid="uid://dlfukvfnw3wgx" path="res://Sprites/seasonal sample (winter).png" id="3_6phgx"]
@@ -9,14 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_wqkje"]
 [ext_resource type="PackedScene" uid="uid://iuqokfdpndi8" path="res://Scenes/fish_enemy.tscn" id="5_bvt00"]
 [ext_resource type="PackedScene" uid="uid://dma46d5yuelkn" path="res://Scenes/pickup_spawner.tscn" id="6_754fn"]
+[ext_resource type="PackedScene" uid="uid://dhefulsp2xnmm" path="res://Scenes/adware_enemy.tscn" id="7_0cmrb"]
 [ext_resource type="Script" uid="uid://bhkvndr2k0oq1" path="res://fps.gd" id="7_8c0lf"]
 [ext_resource type="PackedScene" uid="uid://c4s8rr3cgwsrj" path="res://Scenes/ball_enemy.tscn" id="7_nngtn"]
 [ext_resource type="PackedScene" uid="uid://dcliao6g41v6o" path="res://Scenes/bug_enemy.tscn" id="8_vofx3"]
 [ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="9_00k4y"]
 [ext_resource type="PackedScene" uid="uid://cxbk1phwrikcq" path="res://Scenes/gorilla_enemy.tscn" id="10_3a44l"]
 [ext_resource type="PackedScene" uid="uid://cdarh4trfxe8b" path="res://Scenes/rootkit_enemy.tscn" id="11_0cmrb"]
+[ext_resource type="PackedScene" uid="uid://dxv4a1df3q5h3" path="res://Scenes/cthulian_enemy.tscn" id="11_pnhnk"]
 [ext_resource type="PackedScene" uid="uid://b0jvfh2sma5ex" path="res://Scenes/small_comp_worm.tscn" id="12_pnhnk"]
 [ext_resource type="PackedScene" uid="uid://d11ca0igusmvs" path="res://Scenes/spider_enemy.tscn" id="13_24uko"]
+[ext_resource type="PackedScene" uid="uid://y508i7vk25mr" path="res://Scenes/monster_enemy.tscn" id="14_24uko"]
+[ext_resource type="PackedScene" uid="uid://y6xx4uyi88lr" path="res://Scenes/thing_enemy.tscn" id="17_gf56v"]
+[ext_resource type="PackedScene" uid="uid://cuu58npgnrt3m" path="res://Scenes/batteriophage_enemy.tscn" id="19_24uko"]
+[ext_resource type="PackedScene" uid="uid://bbd40f66d41av" path="res://Scenes/skong_enemy.tscn" id="20_gf56v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c0lf"]
 outline_size = 3
@@ -500,13 +507,20 @@ normal = Vector2(-8.74228e-08, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ExperienceBar" parent="CanvasLayer" instance=ExtResource("1_pnhnk")]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 5.159973
+offset_bottom = 4.879999
+
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("4_wqkje")]
 offset_left = 8.0
 offset_right = 308.0
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
+offset_top = 25.0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 48.00001
 label_settings = SubResource("LabelSettings_8c0lf")
 script = ExtResource("7_8c0lf")
 
@@ -515,8 +529,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
+offset_top = 25.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 48.00002
 grow_horizontal = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -538,8 +553,8 @@ tile_map_data = PackedByteArray("AADm/wgAAAAAAAIAAADm/wcAAAAAAAIAAADm/wYAAAAAAAI
 tile_set = SubResource("TileSet_wqkje")
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("4_754fn")]
-max_enemy_default = 300
-enemy_scenes = Array[PackedScene]([ExtResource("5_bvt00"), ExtResource("7_nngtn"), ExtResource("8_vofx3"), ExtResource("9_00k4y"), ExtResource("10_3a44l"), ExtResource("11_0cmrb"), ExtResource("12_pnhnk"), ExtResource("13_24uko")])
+max_enemy_default = 200
+enemy_scenes = Array[PackedScene]([ExtResource("12_pnhnk"), ExtResource("7_0cmrb"), ExtResource("7_nngtn"), ExtResource("8_vofx3"), ExtResource("9_00k4y"), ExtResource("11_pnhnk"), ExtResource("5_bvt00"), ExtResource("10_3a44l"), ExtResource("14_24uko"), ExtResource("11_0cmrb"), ExtResource("13_24uko"), ExtResource("17_gf56v"), ExtResource("19_24uko"), ExtResource("20_gf56v")])
 
 [node name="Weapon Manager" parent="." instance=ExtResource("1_0f350")]
 
@@ -585,3 +600,4 @@ shape = SubResource("WorldBoundaryShape2D_81xng")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="timeout" from="CanvasLayer/Time/Timer" to="CanvasLayer/Time" method="_on_timer_timeout"]
+[connection signal="experience_gained" from="Player" to="CanvasLayer/ExperienceBar" method="_on_player_experience_gained"]
