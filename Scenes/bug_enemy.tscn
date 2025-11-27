@@ -188,6 +188,7 @@ _data = {
 z_index = 1
 collision_layer = 64
 collision_mask = 72
+motion_mode = 1
 script = ExtResource("1_hvlcn")
 experience_dropped = ExtResource("2_unq4r")
 health = 100

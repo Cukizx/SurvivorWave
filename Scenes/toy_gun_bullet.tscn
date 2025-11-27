@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6f6322cdlntn"]
 
-[ext_resource type="Script" uid="uid://ey57adxacv3q" path="res://Scripts/seeker_bullet.gd" id="1_i6vti"]
-[ext_resource type="Texture2D" uid="uid://8aif81hunuv" path="res://Sprites/bullet_seeker.png" id="2_fri4c"]
+[ext_resource type="Script" uid="uid://ey57adxacv3q" path="res://Scripts/seeker_bullet.gd" id="1_7rat8"]
+[ext_resource type="Texture2D" uid="uid://8aif81hunuv" path="res://Sprites/bullet_seeker.png" id="2_8vsj0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
 size = Vector2(5.9999957, 5.9999866)
 
-[node name="SeekerBullet" type="Area2D"]
+[node name="ToyGunBullet" type="Area2D"]
 rotation = -6.28319
 collision_layer = 16
 collision_mask = 4
-script = ExtResource("1_i6vti")
-base_damage = 8.0
+script = ExtResource("1_7rat8")
+base_damage = 100.0
 piercing = false
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -22,6 +22,6 @@ shape = SubResource("RectangleShape2D_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_fri4c")
+texture = ExtResource("2_8vsj0")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

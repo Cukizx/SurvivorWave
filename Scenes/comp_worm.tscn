@@ -191,6 +191,7 @@ _data = {
 [node name="Enemy" type="CharacterBody2D" groups=["big_worm"]]
 collision_layer = 4
 collision_mask = 12
+motion_mode = 1
 script = ExtResource("1_nfmgh")
 spawn_enemy_index = 1
 spawn_enemy_quantity = 3

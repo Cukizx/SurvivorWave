@@ -186,6 +186,7 @@ _data = {
 [node name="Enemy" type="CharacterBody2D" groups=["small_worm"]]
 collision_layer = 4
 collision_mask = 12
+motion_mode = 1
 script = ExtResource("1_bmhs1")
 experience_dropped = ExtResource("2_mruq1")
 health = 70

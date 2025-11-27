@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5as5bhw4ufp"]
+
+[ext_resource type="Script" uid="uid://d2xbst5ehhs2j" path="res://Scripts/on_screen_inventory.gd" id="1_jq6dm"]
+[ext_resource type="Resource" uid="uid://jc55sxiulp3o" path="res://Resources/Player/player_inventory.tres" id="2_jq6dm"]
+
+[node name="OnScreenInventory" type="Control" node_paths=PackedStringArray("inventory_slots")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -500.0
+offset_bottom = -292.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq6dm")
+inventory_slots = [NodePath("GridContainer/InventorySlot1/Item"), NodePath("GridContainer/InventorySlot2/Item"), NodePath("GridContainer/InventorySlot3/Item"), NodePath("GridContainer/InventorySlot4/Item"), NodePath("GridContainer/InventorySlot5/Item"), NodePath("GridContainer/InventorySlot6/Item"), NodePath("GridContainer/InventorySlot7/Item")]
+player_inventory = ExtResource("2_jq6dm")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 68.0
+columns = 4
+
+[node name="InventorySlot1" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot1"]
+centered = false
+
+[node name="InventorySlot2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot2"]
+centered = false
+
+[node name="InventorySlot3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot3"]
+centered = false
+
+[node name="InventorySlot4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot4"]
+centered = false
+
+[node name="InventorySlot5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot5"]
+centered = false
+
+[node name="InventorySlot6" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot6"]
+centered = false
+
+[node name="InventorySlot7" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot7"]
+centered = false

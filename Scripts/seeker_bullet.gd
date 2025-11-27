@@ -7,6 +7,7 @@ var damage: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	position = Globals.player_pos
 	closest = closest_target()
 	damage = base_damage * Globals.player_damage_multiplier
 	if !closest:

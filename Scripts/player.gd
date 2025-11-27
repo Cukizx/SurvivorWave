@@ -2,6 +2,8 @@
 extends Character
 class_name Player
 
+@export var inventory: Inventory
+
 var direction: Vector2
 var move_vector := Vector2.ZERO
 var no_hit_time: float = 0.0
@@ -12,9 +14,12 @@ var experience: int = 0
 @onready var health_bar = $HealthBar
 @onready var max_health: float = health
 
-signal experience_gained(experience_amount)
+
+signal experience_gained(experience_amount: int, player: Player)
+signal inventory_changed(inventory: Inventory)
 
 func _ready() -> void:
+	inventory_changed.emit(inventory)
 	Globals.player = self
 
 func move(direction: Vector2):
@@ -58,10 +63,17 @@ func _on_collision_check_area_body_entered(body: Node2D) -> void:
 
 func get_experience(experience_points: int):
 	experience += experience_points
-	experience_gained.emit(experience)
+	experience_gained.emit(experience, self)
 
 func death():
 	is_dead = true
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	GameManager.set_game_state(GameManager.GameState.MAIN_MENU)
+
+func add_weapon(weapon):
+	inventory.weapons.append(weapon)
+	update_inventory()
+	
+func update_inventory():
+	inventory_changed.emit(inventory)

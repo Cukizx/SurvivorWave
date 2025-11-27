@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cejciodf0ukwx"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_f0gwb"]
+[ext_resource type="Texture2D" uid="uid://bbo00ojkdtdf5" path="res://Sprites/Weapons_Hacking_Device.png" id="2_sk738"]
+
+[resource]
+script = ExtResource("1_f0gwb")
+name = "hacking_device"
+sprite = ExtResource("2_sk738")
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://plawk5072io3"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_5r3wp"]
+[ext_resource type="Texture2D" uid="uid://54xf8u2e78m" path="res://Sprites/Weapons_Hyper_Mega_Super_Blaster.png" id="2_rxfci"]
+
+[resource]
+script = ExtResource("1_5r3wp")
+name = "hyper_mega_super_blaster"
+sprite = ExtResource("2_rxfci")
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

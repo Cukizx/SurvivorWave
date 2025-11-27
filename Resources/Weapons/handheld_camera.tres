@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://ckdgycnmc2r0l"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_8nsk2"]
+[ext_resource type="Texture2D" uid="uid://d3mqpmdsedi0p" path="res://Sprites/Weapons_Handheld_Camera.png" id="2_ymfha"]
+
+[resource]
+script = ExtResource("1_8nsk2")
+name = "handheld_camera"
+sprite = ExtResource("2_ymfha")
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

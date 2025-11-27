@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=4 uid="uid://lsmil0igguv1"]
+[gd_scene load_steps=37 format=4 uid="uid://lsmil0igguv1"]
 
 [ext_resource type="PackedScene" uid="uid://c3bpawjyy1f86" path="res://Scenes/weapon_manager.tscn" id="1_0f350"]
+[ext_resource type="PackedScene" uid="uid://df5as5bhw4ufp" path="res://Scenes/on_screen_inventory.tscn" id="1_6y3s5"]
 [ext_resource type="PackedScene" uid="uid://cqp6kuk0jx88l" path="res://Scenes/experience_bar.tscn" id="1_pnhnk"]
 [ext_resource type="PackedScene" uid="uid://vs3rwicdprxk" path="res://Scenes/player.tscn" id="1_tumq0"]
 [ext_resource type="Script" uid="uid://l40xy2vipiil" path="res://Scripts/camera.gd" id="2_k5f4k"]
@@ -507,6 +508,12 @@ normal = Vector2(-8.74228e-08, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="OnScreenInventory" parent="CanvasLayer" instance=ExtResource("1_6y3s5")]
+offset_left = 15.0
+offset_top = 35.0
+offset_right = -485.0
+offset_bottom = -256.99994
+
 [node name="ExperienceBar" parent="CanvasLayer" instance=ExtResource("1_pnhnk")]
 offset_left = 5.0
 offset_top = 5.0
@@ -518,9 +525,13 @@ offset_left = 8.0
 offset_right = 308.0
 
 [node name="FPS" type="Label" parent="CanvasLayer"]
-offset_top = 25.0
-offset_right = 40.0
-offset_bottom = 48.00001
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 15.0
+offset_bottom = 38.000015
+grow_horizontal = 0
 label_settings = SubResource("LabelSettings_8c0lf")
 script = ExtResource("7_8c0lf")
 
@@ -601,3 +612,5 @@ debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="timeout" from="CanvasLayer/Time/Timer" to="CanvasLayer/Time" method="_on_timer_timeout"]
 [connection signal="experience_gained" from="Player" to="CanvasLayer/ExperienceBar" method="_on_player_experience_gained"]
+[connection signal="inventory_changed" from="Player" to="CanvasLayer/OnScreenInventory" method="_on_player_inventory_changed"]
+[connection signal="inventory_changed" from="Player" to="Weapon Manager" method="_on_player_inventory_changed"]

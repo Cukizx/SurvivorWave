@@ -6,12 +6,12 @@
 script = ExtResource("1_dq217")
 
 [node name="Bullet Timer" type="Timer" parent="."]
-wait_time = 0.030000000000000002
-autostart = true
+wait_time = 0.03
 
-[node name="Seeker Bullet Timer" type="Timer" parent="."]
+[node name="Toy Gun Bullet Timer" type="Timer" parent="."]
 wait_time = 0.2
-autostart = true
+
+[node name="Hacking Device Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Bullet Timer" to="." method="_on_bullet_timer_timeout"]
-[connection signal="timeout" from="Seeker Bullet Timer" to="." method="_on_seeker_bullet_timer_timeout"]
+[connection signal="timeout" from="Toy Gun Bullet Timer" to="." method="_on_toy_gun_bullet_timer_timeout"]

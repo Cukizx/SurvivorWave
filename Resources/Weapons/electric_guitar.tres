@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bbqb1ue8roycx"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_ayxc1"]
+[ext_resource type="Texture2D" uid="uid://ce5vwaxp8urlc" path="res://Sprites/Weapons_Electric_Guitar.png" id="2_o22gk"]
+
+[resource]
+script = ExtResource("1_ayxc1")
+name = "electric_guitar"
+sprite = ExtResource("2_o22gk")
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"
