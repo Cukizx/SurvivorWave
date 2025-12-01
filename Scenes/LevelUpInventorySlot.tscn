@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctkkab4mv72xe"]
+
+[ext_resource type="Theme" uid="uid://cl2penxgy36qm" path="res://Themes/level_up_screen_weapon_frame.tres" id="1_37iyn"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(32, 32)
+theme = ExtResource("1_37iyn")

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bmpoy2tti01g2"]
+
+[ext_resource type="FontFile" uid="uid://ko4hv3ppykkt" path="res://Fonts/upheavtt.ttf" id="1_0mes7"]
+
+[resource]
+line_spacing = -4.98
+font = ExtResource("1_0mes7")
+font_size = 15
+outline_color = Color(0, 0, 0, 1)

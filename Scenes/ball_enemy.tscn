@@ -146,6 +146,9 @@ radius = 15.0
 radius = 9.0
 
 [node name="Enemy" instance=ExtResource("1_bkfdl")]
+health = 25.0
+speed = 75.0
+contact_damage = 3.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_jvho4")
@@ -155,8 +158,6 @@ offset = Vector2(2.215, 0)
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_gcokh")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision" parent="CollisionCheckArea" index="0"]
 shape = SubResource("CircleShape2D_h248f")
-debug_color = Color(0, 0.6, 0.7, 0.42)

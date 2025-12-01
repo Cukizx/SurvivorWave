@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 class_name Character
 
-@export var health: int =  5
+@export var health: float =  5
 @export var speed: float = 100.0
-@export var contact_damage: int = 0
+@export var contact_damage: float = 0
 @export var inv_seconds: float = 5.0
 @export var is_invincible: bool = false
 @export var damage_numbers: bool = false

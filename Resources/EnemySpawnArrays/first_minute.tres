@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=6 format=3 uid="uid://ds1vl5i1rn1b3"]
+
+[ext_resource type="PackedScene" uid="uid://b0jvfh2sma5ex" path="res://Scenes/small_comp_worm.tscn" id="1_y0876"]
+[ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="2_buirk"]
+[ext_resource type="PackedScene" uid="uid://d11ca0igusmvs" path="res://Scenes/spider_enemy.tscn" id="3_843fw"]
+[ext_resource type="PackedScene" uid="uid://iuqokfdpndi8" path="res://Scenes/fish_enemy.tscn" id="4_bnj45"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="5_ml4oj"]
+
+[resource]
+script = ExtResource("5_ml4oj")
+enemy_array = Array[PackedScene]([ExtResource("1_y0876"), ExtResource("2_buirk"), ExtResource("3_843fw"), ExtResource("3_843fw"), ExtResource("4_bnj45")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

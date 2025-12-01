@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://phtsptw0ptcn"]
+
+[ext_resource type="Script" uid="uid://dc5pgxdket3we" path="res://Scripts/electric_guitar_projectile.gd" id="1_46gdq"]
+[ext_resource type="Texture2D" uid="uid://1jcudxn6lsep" path="res://Sprites/Electric_Guitar_VFX-Sheet.png" id="3_k0s6p"]
+[ext_resource type="Script" uid="uid://dnc5gbsbllx4v" path="res://addons/donut_collision_polygon2D/donut_collision_polygon2D.gd" id="5_ijxfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20ins"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijxfq"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4lfw"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f6xd"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stngd"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbxo4"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofq2g"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os8br"]
+atlas = ExtResource("3_k0s6p")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o58ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20ins")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijxfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4lfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f6xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stngd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbxo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofq2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os8br")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Bullet" type="Area2D"]
+z_index = 2
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_46gdq")
+bullet_speed = 400.0
+
+[node name="DonutCollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 16)
+polygon = PackedVector2Array(1.6532186e-15, -27, 10.332453, -24.944746, 19.091883, -19.091883, 24.944746, -10.332453, 27, 0, 24.944746, 10.332453, 19.091883, 19.091883, 10.332453, 24.944746, 1.6532186e-15, 27, -10.332453, 24.944746, -19.091883, 19.091883, -24.944746, 10.332453, -27, 3.3064372e-15, -24.944746, -10.332453, -19.091883, -19.091883, -10.332453, -24.944746, -4.9596557e-15, -27)
+disabled = true
+script = ExtResource("5_ijxfq")
+radius = 27.0
+width = 0.0
+quality = 16
+metadata/_custom_type_script = "uid://dnc5gbsbllx4v"
+
+[node name="ElectricGuitarVFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_o58ye")
+autoplay = "default"
+frame = 2
+frame_progress = 0.10946835
+offset = Vector2(-1, 2)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

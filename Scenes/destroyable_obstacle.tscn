@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvxxckscs0ixo"]
+
+[ext_resource type="Script" uid="uid://c81dyxxnfeeo0" path="res://Scripts/destroyable_obstacle.gd" id="1_tyfd2"]
+[ext_resource type="Resource" uid="uid://nxe7xsgub8yc" path="res://Resources/Pickups/pickup_list.tres" id="2_32dl5"]
+[ext_resource type="Texture2D" uid="uid://kb1xu55cwoxx" path="res://Sprites/Destroyable_Object.png" id="3_32dl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61aq5"]
+size = Vector2(18, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq7je"]
+size = Vector2(22, 22)
+
+[node name="DestroyableObstacle" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_tyfd2")
+pickups = ExtResource("2_32dl5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_61aq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_32dl5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kq7je")
+
+[node name="FloppyDiskOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_entered" from="FloppyDiskOnScreenNotifier" to="." method="_on_floppy_disk_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="FloppyDiskOnScreenNotifier" to="." method="_on_floppy_disk_on_screen_notifier_screen_exited"]

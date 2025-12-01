@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://ek7bohsumnb"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_kr5fb"]
+[ext_resource type="PackedScene" uid="uid://pk3738lbxnsv" path="res://Scenes/floppy_disk_projectile.tscn" id="1_wdrn2"]
+[ext_resource type="Texture2D" uid="uid://c0uscdm20g5c1" path="res://Sprites/Weapon_FloppyDisk.png" id="2_wdrn2"]
+
+[resource]
+script = ExtResource("1_kr5fb")
+name = "Floppy Disk"
+sprite = ExtResource("2_wdrn2")
+projectile = ExtResource("1_wdrn2")
+description = "Destroys everything in sight (even objects)"
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

@@ -211,10 +211,9 @@ radius = 150.0
 
 [node name="Enemy" instance=ExtResource("1_mm73b")]
 script = ExtResource("2_rqetl")
-health = 5
+health = 15.0
 speed = 100.0
-contact_damage = 0
-inv_seconds = 5.0
+contact_damage = 2.0
 is_invincible = true
 
 [node name="AnimatedSprite2D" parent="." index="1"]

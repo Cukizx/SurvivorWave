@@ -1,20 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs1228sphs1eo"]
 
+[ext_resource type="Texture2D" uid="uid://dq3dx0rewemtg" path="res://Sprites/Experience_Orb_1.png" id="1_32cl5"]
 [ext_resource type="Script" uid="uid://d0nsjl3uqmu3h" path="res://Scripts/experience.gd" id="1_mm8qv"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ven33"]
-size = Vector2(3, 4)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_mm8qv"]
-radius = 3.0
+radius = 7.071068
 
 [node name="Experience" type="Sprite2D"]
-texture = SubResource("PlaceholderTexture2D_ven33")
+texture = ExtResource("1_32cl5")
 script = ExtResource("1_mm8qv")
 
 [node name="ExperiencePickupCheck" type="Area2D" parent="."]
 collision_layer = 512
-collision_mask = 256
+collision_mask = 258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExperiencePickupCheck"]
 shape = SubResource("CircleShape2D_mm8qv")
@@ -22,5 +20,10 @@ shape = SubResource("CircleShape2D_mm8qv")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-420, -420, 840, 840)
 
+[node name="FloppyDiskOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="area_entered" from="ExperiencePickupCheck" to="." method="_on_experience_pickup_check_area_entered"]
+[connection signal="body_entered" from="ExperiencePickupCheck" to="." method="_on_experience_pickup_check_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_entered" from="FloppyDiskOnScreenNotifier" to="." method="_on_floppy_disk_on_screen_notifier_screen_entered"]
+[connection signal="screen_exited" from="FloppyDiskOnScreenNotifier" to="." method="_on_floppy_disk_on_screen_notifier_screen_exited"]

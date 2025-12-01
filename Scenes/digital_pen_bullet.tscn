@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5uycfkekjm2p"]
+
+[ext_resource type="Script" uid="uid://nlv54nfiu2nn" path="res://Scripts/digital_pen_bullet.gd" id="1_ofp08"]
+[ext_resource type="SpriteFrames" uid="uid://ckt8pyu31y6hs" path="res://Resources/SpriteFrames/digital_pen_head.tres" id="2_bglwn"]
+[ext_resource type="SpriteFrames" uid="uid://dikkbisvp667x" path="res://Resources/SpriteFrames/digital_pen_fox.tres" id="3_bglwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
+size = Vector2(5.9999957, 5.9999866)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ofp08"]
+radius = 88.02273
+
+[node name="DigitalPenBullet" type="Area2D" groups=["digital_pen_familiars"]]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_ofp08")
+familiars = Array[SpriteFrames]([ExtResource("2_bglwn"), ExtResource("3_bglwn"), ExtResource("2_bglwn")])
+piercing = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.1457372e-06, 6.6995694e-06)
+shape = SubResource("RectangleShape2D_oduel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_bglwn")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="EnemyCheckArea" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCheckArea"]
+shape = SubResource("CircleShape2D_ofp08")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="EnemyCheckArea" to="." method="_on_enemy_check_area_area_entered"]

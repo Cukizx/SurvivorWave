@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://py1h02ege6rr"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_akx27"]
+[ext_resource type="Texture2D" uid="uid://dcpn6q4t78obp" path="res://Sprites/Object_Robert.png" id="2_y22if"]
+
+[resource]
+script = ExtResource("1_akx27")
+name = "Robert"
+sprite = ExtResource("2_y22if")
+description = "Raises attack speed"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

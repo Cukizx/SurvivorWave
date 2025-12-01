@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cu700teetaqra"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_w5ir5"]
+[ext_resource type="Texture2D" uid="uid://1aadhgxg488s" path="res://Sprites/Object_Amplifier.png" id="2_yinbk"]
+
+[resource]
+script = ExtResource("1_w5ir5")
+name = "Amplifier"
+sprite = ExtResource("2_yinbk")
+description = "Raises damage dealt"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

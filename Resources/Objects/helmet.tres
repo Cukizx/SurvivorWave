@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dfi6p04l02hif"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_wkyyd"]
+[ext_resource type="Texture2D" uid="uid://be3vwdacq4tnb" path="res://Sprites/Object_Helmet.png" id="2_6h4hl"]
+
+[resource]
+script = ExtResource("1_wkyyd")
+name = "Helmet"
+sprite = ExtResource("2_6h4hl")
+description = "Raises player's armor"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://jc55sxiulp3o"]
 
-[ext_resource type="Script" uid="uid://d1el4mbmlc7wj" path="res://player_inventory.gd" id="1_704xb"]
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_gvst4"]
 [ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="2_b3gyw"]
-[ext_resource type="Resource" uid="uid://bvbcs4m3rnwad" path="res://Resources/Weapons/toy_gun.tres" id="3_b3gyw"]
+[ext_resource type="Script" uid="uid://d1el4mbmlc7wj" path="res://Scripts/player_inventory.gd" id="2_gvst4"]
 
 [resource]
-script = ExtResource("1_704xb")
-weapons = Array[ExtResource("2_b3gyw")]([ExtResource("3_b3gyw")])
+script = ExtResource("2_gvst4")
 metadata/_custom_type_script = "uid://d1el4mbmlc7wj"

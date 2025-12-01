@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqp6kuk0jx88l"]
+[gd_scene load_steps=10 format=3 uid="uid://cqp6kuk0jx88l"]
 
-[ext_resource type="Script" uid="uid://bkyd6gti1qeqi" path="res://experience_bar.gd" id="1_y04v7"]
+[ext_resource type="Texture2D" uid="uid://bargjohppfaeq" path="res://Sprites/Exp_Bar.png" id="1_7u7og"]
+[ext_resource type="Script" uid="uid://bkyd6gti1qeqi" path="res://Scripts/experience_bar.gd" id="1_y04v7"]
+[ext_resource type="Texture2D" uid="uid://b3obn70wjmpp" path="res://Sprites/Exp_Bar_Frame.png" id="2_djn8r"]
+[ext_resource type="Texture2D" uid="uid://ba2xr2mwwviay" path="res://Sprites/Exp_Bar_Progress.png" id="3_0is2o"]
+[ext_resource type="FontFile" uid="uid://ko4hv3ppykkt" path="res://Fonts/upheavtt.ttf" id="5_sbua8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdg7b"]
 bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.70980394)
@@ -20,31 +24,37 @@ corner_radius_bottom_left = 4
 ProgressBar/styles/background = SubResource("StyleBoxFlat_hdg7b")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_y04v7")
 
-[node name="ExperienceBar" type="ProgressBar"]
+[sub_resource type="LabelSettings" id="LabelSettings_r4yut"]
+font = ExtResource("5_sbua8")
+font_size = 40
+
+[node name="ExperienceBar" type="TextureProgressBar"]
 anchors_preset = -1
 anchor_right = 0.467
 anchor_bottom = 0.042000003
-offset_right = 0.11999512
-offset_bottom = -0.12000084
+offset_right = 511.68
+offset_bottom = 7.319998
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_00fqw")
 step = 2.0
-show_percentage = false
+texture_under = ExtResource("1_7u7og")
+texture_over = ExtResource("2_djn8r")
+texture_progress = ExtResource("3_0is2o")
 script = ExtResource("1_y04v7")
 
 [node name="Level" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25800002
-anchor_top = -0.26700002
-anchor_right = 0.74200004
-anchor_bottom = 1.2670001
-offset_left = -0.14200592
-offset_top = 0.0050001144
-offset_right = 0.14198303
-offset_bottom = -0.005001068
-grow_horizontal = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -19.895
+offset_right = -5.0
+offset_bottom = 16.105
+grow_horizontal = 0
 grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+label_settings = SubResource("LabelSettings_r4yut")
+horizontal_alignment = 2

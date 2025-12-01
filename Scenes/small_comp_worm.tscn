@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b0jvfh2sma5ex"]
+[gd_scene load_steps=30 format=3 uid="uid://b0jvfh2sma5ex"]
 
 [ext_resource type="Script" uid="uid://o3j0i5n4eydh" path="res://Scripts/enemy.gd" id="1_bmhs1"]
 [ext_resource type="Texture2D" uid="uid://f6jkdom8kjkm" path="res://Sprites/Enemies_Sm0lC0mp12m.png" id="2_g1pvy"]
@@ -183,19 +183,21 @@ _data = {
 &"hit_flash": SubResource("Animation_0ibox")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mruq1"]
+radius = 17.029387
+
 [node name="Enemy" type="CharacterBody2D" groups=["small_worm"]]
 collision_layer = 4
-collision_mask = 12
+collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_bmhs1")
 experience_dropped = ExtResource("2_mruq1")
-health = 70
 speed = 60.0
-contact_damage = 1
+contact_damage = 1.0
 inv_seconds = 0.1
 damage_numbers = true
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="DespawnOnScreenExit" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-420, -420, 840, 840)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -225,5 +227,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_lg7v6")
 }
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="ScreenEntered" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CharmedEnemyCollision" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharmedEnemyCollision"]
+shape = SubResource("CircleShape2D_mruq1")
+
+[connection signal="screen_exited" from="DespawnOnScreenExit" to="." method="_on_despawn_on_screen_exit_screen_exited"]
 [connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]
+[connection signal="screen_entered" from="ScreenEntered" to="." method="_on_screen_entered_screen_entered"]
+[connection signal="screen_exited" from="ScreenEntered" to="." method="_on_screen_entered_screen_exited"]

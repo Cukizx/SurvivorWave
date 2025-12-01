@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://moj1u24y2n8e"]
+
+[ext_resource type="Script" uid="uid://cmym6itsjhidt" path="res://Scripts/plastic_roscoe_projectile.gd" id="1_ax2yb"]
+[ext_resource type="Script" uid="uid://cgjkcd31gjnxt" path="res://Scripts/bullet_class.gd" id="2_yag2d"]
+[ext_resource type="Texture2D" uid="uid://bih1ny3rcgp6e" path="res://Sprites/PlasticRascol2_VFX.png" id="3_ax2yb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
+size = Vector2(8, 16)
+
+[node name="PlasticRoscoeProjectiles" type="Area2D"]
+z_index = 2
+script = ExtResource("1_ax2yb")
+
+[node name="Bullet1" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("2_yag2d")
+metadata/_custom_type_script = "uid://cgjkcd31gjnxt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet1"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet1"]
+texture_filter = 1
+texture = ExtResource("3_ax2yb")
+
+[node name="MainBulletVisibleScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Bullet1"]
+scale = Vector2(0.16517016, 0.05940796)
+rect = Rect2(-54.48926, -67.33105, 108.97852, 134.6621)
+
+[node name="Bullet2" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("2_yag2d")
+metadata/_custom_type_script = "uid://cgjkcd31gjnxt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet2"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet2"]
+texture_filter = 1
+texture = ExtResource("3_ax2yb")
+
+[node name="BulletUpVisibleScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Bullet2"]
+rect = Rect2(-9, -4, 18, 8)
+
+[node name="Bullet3" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("2_yag2d")
+metadata/_custom_type_script = "uid://cgjkcd31gjnxt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet3"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet3"]
+texture_filter = 1
+texture = ExtResource("3_ax2yb")
+
+[node name="BulletDownVisibleScreenNotifier" type="VisibleOnScreenNotifier2D" parent="Bullet3"]
+rect = Rect2(-9, -4, 18, 8)
+
+[connection signal="screen_exited" from="Bullet1/MainBulletVisibleScreenNotifier" to="." method="_on_main_bullet_visible_screen_notifier_screen_exited"]
+[connection signal="screen_exited" from="Bullet2/BulletUpVisibleScreenNotifier" to="." method="_on_bullet_up_visible_screen_notifier_screen_exited"]
+[connection signal="screen_exited" from="Bullet3/BulletDownVisibleScreenNotifier" to="." method="_on_bullet_down_visible_screen_notifier_screen_exited"]

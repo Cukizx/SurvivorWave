@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://g6vafittfubp"]
+
+[ext_resource type="Script" uid="uid://bendaww0m70yu" path="res://Scripts/handheld_camera_projectile.gd" id="1_3ylgv"]
+[ext_resource type="Texture2D" uid="uid://cfptwapmukiyi" path="res://Sprites/Weapons_Handheld_Camera_Flash.png" id="2_3ylgv"]
+
+[node name="Bullet" type="Area2D"]
+z_index = 2
+rotation = -6.28319
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_3ylgv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_3ylgv")
+centered = false
+offset = Vector2(0, -31.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.47882053, 0.63589)
+polygon = PackedVector2Array(0, 0, 200, -100, 200, 100)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

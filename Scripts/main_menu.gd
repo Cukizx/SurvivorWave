@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 func _on_play_pressed() -> void:
-	GameManager.set_game_state(GameManager.GameState.PLAYING)
+	GameManager.set_game_state(GameManager.GameState.CHARACTER_SELECT)
 
 func _on_options_pressed() -> void:
 	GameManager.set_game_state(GameManager.GameState.OPTIONS)

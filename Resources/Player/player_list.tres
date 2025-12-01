@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerList" load_steps=5 format=3 uid="uid://b2xxwgyoc2v4u"]
+
+[ext_resource type="PackedScene" uid="uid://b6mu02s2aapap" path="res://Scenes/stakka_player.tscn" id="1_pnjyd"]
+[ext_resource type="PackedScene" uid="uid://mimk8frjqod1" path="res://Scenes/kitten_player.tscn" id="2_pe077"]
+[ext_resource type="PackedScene" uid="uid://c1abf2jc2nwav" path="res://Scenes/genoveffa_player.tscn" id="3_s002w"]
+[ext_resource type="Script" uid="uid://bijfm42l1w11t" path="res://Scripts/player_list.gd" id="4_lhv6y"]
+
+[resource]
+script = ExtResource("4_lhv6y")
+player_list = Array[PackedScene]([ExtResource("1_pnjyd"), ExtResource("2_pe077"), ExtResource("3_s002w")])
+metadata/_custom_type_script = "uid://bijfm42l1w11t"

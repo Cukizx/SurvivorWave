@@ -5,13 +5,34 @@
 [node name="Weapon Manager" type="Node2D"]
 script = ExtResource("1_dq217")
 
-[node name="Bullet Timer" type="Timer" parent="."]
-wait_time = 0.03
+[node name="Hyper Mega Super Blaster Timer" type="Timer" parent="."]
 
-[node name="Toy Gun Bullet Timer" type="Timer" parent="."]
+[node name="Plastic Roscoe Bullet Timer" type="Timer" parent="."]
 wait_time = 0.2
 
 [node name="Hacking Device Timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Bullet Timer" to="." method="_on_bullet_timer_timeout"]
-[connection signal="timeout" from="Toy Gun Bullet Timer" to="." method="_on_toy_gun_bullet_timer_timeout"]
+[node name="Digital Pen Timer" type="Timer" parent="."]
+
+[node name="Handheld Camera Timer" type="Timer" parent="."]
+
+[node name="Electric Guitar Timer" type="Timer" parent="."]
+
+[node name="Floppy Disk Timer" type="Timer" parent="."]
+
+[node name="Trident Timer" type="Timer" parent="."]
+
+[node name="Headphones Timer" type="Timer" parent="."]
+
+[node name="Controller Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Hyper Mega Super Blaster Timer" to="." method="_on_hyper_mega_super_blaster_timer_timeout"]
+[connection signal="timeout" from="Plastic Roscoe Bullet Timer" to="." method="_on_plastic_roscoe_bullet_timer_timeout"]
+[connection signal="timeout" from="Hacking Device Timer" to="." method="_on_hacking_device_timer_timeout"]
+[connection signal="timeout" from="Digital Pen Timer" to="." method="_on_digital_pen_timer_timeout"]
+[connection signal="timeout" from="Handheld Camera Timer" to="." method="_on_handheld_camera_timer_timeout"]
+[connection signal="timeout" from="Electric Guitar Timer" to="." method="_on_electric_guitar_timer_timeout"]
+[connection signal="timeout" from="Floppy Disk Timer" to="." method="_on_floppy_disk_timer_timeout"]
+[connection signal="timeout" from="Trident Timer" to="." method="_on_trident_timer_timeout"]
+[connection signal="timeout" from="Headphones Timer" to="." method="_on_headphones_timer_timeout"]
+[connection signal="timeout" from="Controller Timer" to="." method="_on_controller_timer_timeout"]

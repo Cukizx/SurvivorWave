@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://byocpvc7lt6be"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_f767k"]
+[ext_resource type="Texture2D" uid="uid://dn6cky2u1oj18" path="res://Sprites/Object_Plastic_Magazine.png" id="2_oef2g"]
+
+[resource]
+script = ExtResource("1_f767k")
+name = "Plastic Magazine"
+sprite = ExtResource("2_oef2g")
+description = "Raises projectile number"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

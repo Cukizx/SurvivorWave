@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=4 format=3 uid="uid://x8ifsco8vmti"]
+
+[ext_resource type="PackedScene" uid="uid://b0jvfh2sma5ex" path="res://Scenes/small_comp_worm.tscn" id="1_ycejo"]
+[ext_resource type="PackedScene" uid="uid://d11ca0igusmvs" path="res://Scenes/spider_enemy.tscn" id="2_62ipw"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="3_m73p4"]
+
+[resource]
+script = ExtResource("3_m73p4")
+enemy_array = Array[PackedScene]([ExtResource("1_ycejo"), ExtResource("1_ycejo"), ExtResource("1_ycejo"), ExtResource("2_62ipw")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://crv1rl0r7cxoc"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_yt5r4"]
+[ext_resource type="Texture2D" uid="uid://deqxx3js1egnp" path="res://Sprites/Object_Disk_Reader.png" id="2_qpicr"]
+
+[resource]
+script = ExtResource("1_yt5r4")
+name = "Disk Reader"
+sprite = ExtResource("2_qpicr")
+description = "Lowers weapon cooldowns"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

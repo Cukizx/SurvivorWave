@@ -13,14 +13,14 @@ offset_bottom = -292.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jq6dm")
-inventory_slots = [NodePath("GridContainer/InventorySlot1/Item"), NodePath("GridContainer/InventorySlot2/Item"), NodePath("GridContainer/InventorySlot3/Item"), NodePath("GridContainer/InventorySlot4/Item"), NodePath("GridContainer/InventorySlot5/Item"), NodePath("GridContainer/InventorySlot6/Item"), NodePath("GridContainer/InventorySlot7/Item")]
+inventory_slots = [NodePath("GridContainer/InventorySlot1/Item"), NodePath("GridContainer/InventorySlot2/Item"), NodePath("GridContainer/InventorySlot3/Item"), NodePath("GridContainer/InventorySlot4/Item"), NodePath("GridContainer/InventorySlot5/Item"), NodePath("GridContainer/InventorySlot6/Item"), NodePath("GridContainer/InventorySlot7/Item"), NodePath("GridContainer/InventorySlot8/Item"), NodePath("GridContainer/InventorySlot9/Item"), NodePath("GridContainer/InventorySlot10/Item")]
 player_inventory = ExtResource("2_jq6dm")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 68.0
-columns = 4
+columns = 5
 
 [node name="InventorySlot1" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -69,4 +69,25 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
 [node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot7"]
+centered = false
+
+[node name="InventorySlot8" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot8"]
+centered = false
+
+[node name="InventorySlot9" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot9"]
+centered = false
+
+[node name="InventorySlot10" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="GridContainer/InventorySlot10"]
 centered = false

@@ -6,11 +6,23 @@ var camera_center: Vector2
 var camera_size: Rect2
 var player_dir: Vector2
 var is_mobile: bool
-var player_damage_multiplier: float = 1.0
 var enemy_stop: bool = false
 var enemy_stop_duration: float = 0.0
 var no_hit_time: float = 0.0
 var player_experience: int = 0
+var character_selected: int = 0
+var game_won: bool = false
+
+var player_damage_multiplier: float = 1.0
+var weapon_cooldown_modifier: float = 1.0
+var player_armor: float = 1
+var player_speed_modifier: float = 1
+var player_experience_modifier: float = 1
+var bullet_speed_modifier: float = 1
+var effect_duration_modifier: float = 1
+var projectile_number_modifier: int = 1
+var player_health_modifier: float = 1
+var area_of_effect_modifier: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

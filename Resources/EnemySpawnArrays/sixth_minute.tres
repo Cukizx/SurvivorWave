@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=9 format=3 uid="uid://b6mjcm765aykw"]
+
+[ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="1_1oohh"]
+[ext_resource type="PackedScene" uid="uid://c4s8rr3cgwsrj" path="res://Scenes/ball_enemy.tscn" id="4_hckaf"]
+[ext_resource type="PackedScene" uid="uid://cuu58npgnrt3m" path="res://Scenes/bacteriophage_enemy.tscn" id="4_n6in8"]
+[ext_resource type="PackedScene" uid="uid://dhefulsp2xnmm" path="res://Scenes/adware_enemy.tscn" id="5_bjtsm"]
+[ext_resource type="PackedScene" uid="uid://dcliao6g41v6o" path="res://Scenes/bug_enemy.tscn" id="5_diw72"]
+[ext_resource type="PackedScene" uid="uid://y508i7vk25mr" path="res://Scenes/monster_enemy.tscn" id="6_7d8l7"]
+[ext_resource type="PackedScene" uid="uid://iuqokfdpndi8" path="res://Scenes/fish_enemy.tscn" id="6_hckaf"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="7_jc4im"]
+
+[resource]
+script = ExtResource("7_jc4im")
+enemy_array = Array[PackedScene]([ExtResource("1_1oohh"), ExtResource("4_hckaf"), ExtResource("5_diw72"), ExtResource("4_n6in8"), ExtResource("5_bjtsm"), ExtResource("6_hckaf"), ExtResource("6_7d8l7"), ExtResource("4_n6in8")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

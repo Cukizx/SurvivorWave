@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=16 format=3 uid="uid://dq1e2n80uswp7"]
+
+[ext_resource type="PackedScene" uid="uid://dhefulsp2xnmm" path="res://Scenes/adware_enemy.tscn" id="1_i7cuw"]
+[ext_resource type="PackedScene" uid="uid://cuu58npgnrt3m" path="res://Scenes/bacteriophage_enemy.tscn" id="2_d27el"]
+[ext_resource type="PackedScene" uid="uid://c4s8rr3cgwsrj" path="res://Scenes/ball_enemy.tscn" id="3_hofbm"]
+[ext_resource type="PackedScene" uid="uid://dcliao6g41v6o" path="res://Scenes/bug_enemy.tscn" id="4_tbsoy"]
+[ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="5_w7e2v"]
+[ext_resource type="PackedScene" uid="uid://dxv4a1df3q5h3" path="res://Scenes/cthulian_enemy.tscn" id="6_ru4bv"]
+[ext_resource type="PackedScene" uid="uid://iuqokfdpndi8" path="res://Scenes/fish_enemy.tscn" id="7_ph7ag"]
+[ext_resource type="PackedScene" uid="uid://cxbk1phwrikcq" path="res://Scenes/gorilla_enemy.tscn" id="8_qlclx"]
+[ext_resource type="PackedScene" uid="uid://y508i7vk25mr" path="res://Scenes/monster_enemy.tscn" id="9_yt8h2"]
+[ext_resource type="PackedScene" uid="uid://cdarh4trfxe8b" path="res://Scenes/rootkit_enemy.tscn" id="10_2c4mn"]
+[ext_resource type="PackedScene" uid="uid://bbd40f66d41av" path="res://Scenes/skong_enemy.tscn" id="11_cq6l7"]
+[ext_resource type="PackedScene" uid="uid://y6xx4uyi88lr" path="res://Scenes/thing_enemy.tscn" id="12_icb1d"]
+[ext_resource type="PackedScene" uid="uid://d11ca0igusmvs" path="res://Scenes/spider_enemy.tscn" id="13_2f1hc"]
+[ext_resource type="PackedScene" uid="uid://b0jvfh2sma5ex" path="res://Scenes/small_comp_worm.tscn" id="14_2c1m5"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="15_qq6ff"]
+
+[resource]
+script = ExtResource("15_qq6ff")
+enemy_array = Array[PackedScene]([ExtResource("1_i7cuw"), ExtResource("1_i7cuw"), ExtResource("2_d27el"), ExtResource("2_d27el"), ExtResource("3_hofbm"), ExtResource("3_hofbm"), ExtResource("4_tbsoy"), ExtResource("4_tbsoy"), ExtResource("5_w7e2v"), ExtResource("6_ru4bv"), ExtResource("6_ru4bv"), ExtResource("7_ph7ag"), ExtResource("7_ph7ag"), ExtResource("8_qlclx"), ExtResource("9_yt8h2"), ExtResource("9_yt8h2"), ExtResource("10_2c4mn"), ExtResource("10_2c4mn"), ExtResource("11_cq6l7"), ExtResource("11_cq6l7"), ExtResource("12_icb1d"), ExtResource("12_icb1d"), ExtResource("13_2f1hc"), ExtResource("14_2c1m5")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

@@ -1,17 +1,8 @@
-extends Area2D
-class_name Pickup
+extends Resource
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+class_name PickupItem
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func picked_up(duration: float = 0):
-	self.visible = false
-	var children = get_children()
-	for child in children.size():
-		children[child].queue_free()
-	await get_tree().create_timer(duration, false).timeout
+@export var name: String = ""
+@export var sprite: Texture2D
+@export var pickup_scene: PackedScene
+@export_range(0, 1, 0.05) var spawn_rate: float = 0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://fy70hpvwfnpx"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_nwqat"]
+[ext_resource type="Texture2D" uid="uid://d4mqbris2082c" path="res://Sprites/Object_Cassette.png" id="2_2eafg"]
+
+[resource]
+script = ExtResource("1_nwqat")
+name = "Cassette"
+sprite = ExtResource("2_2eafg")
+description = "Raises character health"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

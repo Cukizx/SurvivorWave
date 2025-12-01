@@ -1,0 +1,412 @@
+[gd_scene load_steps=29 format=3 uid="uid://lqwm3ojnh2fk"]
+
+[ext_resource type="Theme" uid="uid://2tyx6xvdw0ai" path="res://Themes/pause_menu_background.tres" id="1_ryp7x"]
+[ext_resource type="Texture2D" uid="uid://dy62ueilqh80j" path="res://Sprites/Button_Back_1.png" id="2_8iqp8"]
+[ext_resource type="Texture2D" uid="uid://dftikluol5p8y" path="res://Sprites/Button_Back_3.png" id="3_0gaxt"]
+[ext_resource type="Texture2D" uid="uid://c2itcbiaxy8qp" path="res://Sprites/Button_Back_2.png" id="4_ulsly"]
+[ext_resource type="Texture2D" uid="uid://bdffdfw31gaua" path="res://Sprites/Character_Selection_Border.png" id="5_xwwlo"]
+[ext_resource type="Texture2D" uid="uid://b40wcp8au4dde" path="res://Sprites/Character_Selection_Title.png" id="6_fvukq"]
+[ext_resource type="ButtonGroup" uid="uid://d3a6g0bregomj" path="res://character_select_button_group.tres" id="7_huove"]
+[ext_resource type="Texture2D" uid="uid://cpxuiggikqb3s" path="res://Sprites/Character_Selection_Frame.png" id="8_ao3ik"]
+[ext_resource type="Texture2D" uid="uid://ct85kr6pwa15h" path="res://Sprites/Character_Selection_Frame_Focus.png" id="9_ia4fa"]
+[ext_resource type="Texture2D" uid="uid://ba3oi42v26one" path="res://Sprites/Character_Selection_Frame_Red.png" id="10_o7geb"]
+[ext_resource type="Texture2D" uid="uid://uqiuv007fdig" path="res://Sprites/Stakka_Character_select.png" id="11_3kaft"]
+[ext_resource type="Theme" uid="uid://cl2penxgy36qm" path="res://Themes/level_up_screen_weapon_frame.tres" id="12_ec3t4"]
+[ext_resource type="Texture2D" uid="uid://bbo00ojkdtdf5" path="res://Sprites/Weapons_Hacking_Device.png" id="13_66ndm"]
+[ext_resource type="LabelSettings" uid="uid://jpq2uumtph2b" path="res://Themes/options_font.tres" id="14_yniqw"]
+[ext_resource type="FontFile" uid="uid://bvorjlmchht4r" path="res://Fonts/Perfect.DOS.VGA.437.ttf" id="15_h8tr5"]
+[ext_resource type="Texture2D" uid="uid://b632xo40ow74b" path="res://Sprites/Character_Selection_Kitten_Blaster.png" id="16_qa4co"]
+[ext_resource type="Texture2D" uid="uid://54xf8u2e78m" path="res://Sprites/Weapons_Hyper_Mega_Super_Blaster.png" id="17_b1lfj"]
+[ext_resource type="Texture2D" uid="uid://biignw0n25uaw" path="res://Sprites/Character_Selection_Genoveffa.png" id="18_hi088"]
+[ext_resource type="Texture2D" uid="uid://tokla20vsls7" path="res://Sprites/Weapon_Plastic_Roscoe.png" id="19_0igsb"]
+[ext_resource type="Texture2D" uid="uid://demcmuqp8l2gj" path="res://Sprites/Start_Character_Select1.png" id="20_3374w"]
+[ext_resource type="Texture2D" uid="uid://cv08l8ku0yfhq" path="res://Sprites/Start_Character_Select3.png" id="21_o2mxf"]
+[ext_resource type="Texture2D" uid="uid://bdyestr6srhpg" path="res://Sprites/Start_Character_Select2.png" id="22_nqlnb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5jup"]
+texture = ExtResource("5_xwwlo")
+
+[sub_resource type="Theme" id="Theme_lhu08"]
+Panel/styles/panel = SubResource("StyleBoxTexture_x5jup")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sercj"]
+blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6lv0"]
+bg_color = Color(0.15294118, 0.078431375, 0.3254902, 1)
+corner_radius_top_left = 72
+corner_radius_top_right = 72
+corner_radius_bottom_right = 72
+corner_radius_bottom_left = 72
+
+[sub_resource type="Theme" id="Theme_kytet"]
+Panel/styles/panel = SubResource("StyleBoxFlat_g6lv0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j14mo"]
+line_spacing = -0.775
+font = ExtResource("15_h8tr5")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ryp7x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 163
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Back" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+texture_normal = ExtResource("2_8iqp8")
+texture_pressed = ExtResource("3_0gaxt")
+texture_hover = ExtResource("4_ulsly")
+
+[node name="CharacterSelectContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer"]
+custom_minimum_size = Vector2(470, 438)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = SubResource("Theme_lhu08")
+
+[node name="Panel" type="Panel" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_sercj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kytet")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_fvukq")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Character1" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("7_huove")
+texture_normal = ExtResource("8_ao3ik")
+texture_pressed = ExtResource("9_ia4fa")
+texture_hover = ExtResource("10_o7geb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("11_3kaft")
+stretch_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="WeaponFrame1" type="Panel" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("12_ec3t4")
+
+[node name="WeaponIcon1" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer2/WeaponFrame1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_66ndm")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -27
+
+[node name="WeaponName1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 17)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "STAKKA"
+label_settings = ExtResource("14_yniqw")
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 48
+
+[node name="WeaponDescription1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character1/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(277.78, 17)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Got tracked down more than he'd like to admit"
+label_settings = SubResource("LabelSettings_j14mo")
+autowrap_mode = 3
+
+[node name="Character2" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("7_huove")
+texture_normal = ExtResource("8_ao3ik")
+texture_pressed = ExtResource("9_ia4fa")
+texture_hover = ExtResource("10_o7geb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("16_qa4co")
+stretch_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="WeaponFrame1" type="Panel" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("12_ec3t4")
+
+[node name="WeaponIcon1" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer2/WeaponFrame1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_b1lfj")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -7
+
+[node name="WeaponName1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 17)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "kitten blaster"
+label_settings = ExtResource("14_yniqw")
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = -5
+
+[node name="WeaponDescription1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character2/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(277.78, 17)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "C'mere kitty kitty, come he- wait, why does he have a gun, NO STOP THAT PLEASE DO-"
+label_settings = SubResource("LabelSettings_j14mo")
+autowrap_mode = 3
+
+[node name="Character3" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+toggle_mode = true
+button_group = ExtResource("7_huove")
+texture_normal = ExtResource("8_ao3ik")
+texture_pressed = ExtResource("9_ia4fa")
+texture_hover = ExtResource("10_o7geb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("18_hi088")
+stretch_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="WeaponFrame1" type="Panel" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("12_ec3t4")
+
+[node name="WeaponIcon1" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer2/WeaponFrame1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0igsb")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -27
+
+[node name="WeaponName1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 17)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "GENOVEFFA"
+label_settings = ExtResource("14_yniqw")
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 25
+
+[node name="WeaponDescription1" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CharacterSelectContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Character3/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(277.78, 17)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "It is said that with her dance moves she managed to collapse a neutron star, so cool :o"
+label_settings = SubResource("LabelSettings_j14mo")
+autowrap_mode = 3
+
+[node name="Start" type="TextureButton" parent="PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("20_3374w")
+texture_pressed = ExtResource("21_o2mxf")
+texture_hover = ExtResource("22_nqlnb")

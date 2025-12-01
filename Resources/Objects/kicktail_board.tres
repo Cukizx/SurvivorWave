@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://3eqsgdcg541e"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_iqlnq"]
+[ext_resource type="Texture2D" uid="uid://cx3ocoklmxyp5" path="res://Sprites/Object_Kicktail_Board.png" id="2_wv5yy"]
+
+[resource]
+script = ExtResource("1_iqlnq")
+name = "Kicktail Board"
+sprite = ExtResource("2_wv5yy")
+description = "Raises movement speed"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

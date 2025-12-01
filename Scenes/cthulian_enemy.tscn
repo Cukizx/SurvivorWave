@@ -220,6 +220,9 @@ radius = 16.0
 radius = 12.0
 
 [node name="Enemy" instance=ExtResource("1_4paru")]
+health = 50.0
+speed = 40.0
+contact_damage = 4.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_01t1q")

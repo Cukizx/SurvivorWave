@@ -217,6 +217,8 @@ animations = [{
 radius = 14.0
 
 [node name="Enemy" instance=ExtResource("1_48l1s")]
+health = 30.0
+contact_damage = 3.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_0csrv")

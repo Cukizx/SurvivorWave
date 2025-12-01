@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bvbcs4m3rnwad"]
+
+[ext_resource type="PackedScene" uid="uid://moj1u24y2n8e" path="res://Scenes/plastic_roscoe_projectile.tscn" id="1_2r180"]
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="2_v6gvt"]
+[ext_resource type="Texture2D" uid="uid://tokla20vsls7" path="res://Sprites/Weapon_Plastic_Roscoe.png" id="3_6ks7j"]
+
+[resource]
+script = ExtResource("2_v6gvt")
+name = "Plastic Roscoe"
+sprite = ExtResource("3_6ks7j")
+projectile = ExtResource("1_2r180")
+description = "Shoots 3 projectile randomly from the player"
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

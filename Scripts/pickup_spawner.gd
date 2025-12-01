@@ -1,17 +1,18 @@
 extends Node2D
 
 @export var max_pickups: int = 2
-@export var pickups: Array
 
+@onready var destroyable_object = preload("res://Scenes/destroyable_obstacle.tscn")
 @onready var spawn_location = $"../Path2D/Mob Spawn Location"
 
-var double_damage = preload("res://Scenes/double_damage.tscn")
-var stop_time = preload("res://Scenes/stop_time.tscn")
+#var double_damage = preload("res://Scenes/double_damage.tscn")
+#var stop_time = preload("res://Scenes/stop_time.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pickups.append(double_damage)
-	pickups.append(stop_time)
+	#pickups.append(double_damage)
+	#pickups.append(stop_time)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,12 +26,10 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if randf() >= 0.8 and get_child_count() < max_pickups + 1:
-		var index = randi_range(0, pickups.size() - 1)
-		spawn_pickup(index)
+		spawn_destroyable_object()
 
-func spawn_pickup(index):
-	var pickup = pickups[index].instantiate()
+func spawn_destroyable_object():
+	var destroyable = destroyable_object.instantiate()
 	spawn_location.progress_ratio = randf()
-	pickup.position = spawn_location.position + Globals.camera_center
-	pickup.scale = Vector2(2, 2)
-	add_child(pickup)
+	destroyable.position = spawn_location.position + Globals.camera_center
+	add_child(destroyable)

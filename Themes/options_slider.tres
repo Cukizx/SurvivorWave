@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dtpg2g1cy0p8n"]
+
+[ext_resource type="Texture2D" uid="uid://dylhqvov70wob" path="res://Sprites/Slider_Handle.png" id="1_m7m57"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cvaji"]
+color = Color(1, 1, 1, 1)
+thickness = 3
+
+[resource]
+HSlider/icons/grabber = ExtResource("1_m7m57")
+HSlider/icons/grabber_highlight = ExtResource("1_m7m57")
+HSlider/styles/slider = SubResource("StyleBoxLine_cvaji")

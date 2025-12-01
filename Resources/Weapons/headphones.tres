@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://hb1ol1slvxmj"]
+
+[ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_4o137"]
+[ext_resource type="Texture2D" uid="uid://bq5pwdgih5e0g" path="res://Sprites/Weapon_Headphones.png" id="2_s7see"]
+
+[resource]
+script = ExtResource("1_4o137")
+name = "Headphones"
+sprite = ExtResource("2_s7see")
+level = 7
+description = "Gives the player a frame of invicincibility upon being attacked"
+metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

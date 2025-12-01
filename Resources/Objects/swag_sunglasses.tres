@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bwgsn57ms0pcx"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_ox4ou"]
+[ext_resource type="Texture2D" uid="uid://ck7at2kp8sm7m" path="res://Sprites/Object_Swag_Sunglasses.png" id="2_1yliq"]
+
+[resource]
+script = ExtResource("1_ox4ou")
+name = "Swag Sunglasses"
+sprite = ExtResource("2_1yliq")
+description = "Raises effect duration"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

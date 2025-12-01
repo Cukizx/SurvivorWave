@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=8 format=3 uid="uid://b3p4ak2rgq71"]
+
+[ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="1_1oohh"]
+[ext_resource type="PackedScene" uid="uid://b0jvfh2sma5ex" path="res://Scenes/small_comp_worm.tscn" id="2_n6in8"]
+[ext_resource type="PackedScene" uid="uid://d11ca0igusmvs" path="res://Scenes/spider_enemy.tscn" id="3_bjtsm"]
+[ext_resource type="PackedScene" uid="uid://c4s8rr3cgwsrj" path="res://Scenes/ball_enemy.tscn" id="4_hckaf"]
+[ext_resource type="PackedScene" uid="uid://dcliao6g41v6o" path="res://Scenes/bug_enemy.tscn" id="5_diw72"]
+[ext_resource type="PackedScene" uid="uid://y508i7vk25mr" path="res://Scenes/monster_enemy.tscn" id="6_7d8l7"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="7_jc4im"]
+
+[resource]
+script = ExtResource("7_jc4im")
+enemy_array = Array[PackedScene]([ExtResource("1_1oohh"), ExtResource("1_1oohh"), ExtResource("2_n6in8"), ExtResource("3_bjtsm"), ExtResource("4_hckaf"), ExtResource("5_diw72"), ExtResource("6_7d8l7"), ExtResource("6_7d8l7")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

@@ -143,6 +143,8 @@ animations = [{
 radius = 13.0
 
 [node name="Enemy" instance=ExtResource("1_he8yh")]
+health = 15.0
+contact_damage = 2.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_e7l54")
@@ -152,9 +154,7 @@ offset = Vector2(0, -4.17)
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_g3bs4")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Collision" parent="CollisionCheckArea" index="0"]
 position = Vector2(0, 1)
 rotation = 1.5707964
-debug_color = Color(0, 0.6, 0.7, 0.42)

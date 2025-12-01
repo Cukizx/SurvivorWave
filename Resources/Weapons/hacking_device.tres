@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://cejciodf0ukwx"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://cejciodf0ukwx"]
 
+[ext_resource type="PackedScene" uid="uid://g74huccroaoy" path="res://Scenes/hacking_device_projectile.tscn" id="1_8yftu"]
 [ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_f0gwb"]
 [ext_resource type="Texture2D" uid="uid://bbo00ojkdtdf5" path="res://Sprites/Weapons_Hacking_Device.png" id="2_sk738"]
 
 [resource]
 script = ExtResource("1_f0gwb")
-name = "hacking_device"
+name = "Hacking Device"
 sprite = ExtResource("2_sk738")
+projectile = ExtResource("1_8yftu")
+description = "Drops a casual hack on the enemies on the field, damaging them"
 metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

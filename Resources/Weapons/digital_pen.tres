@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://d23ist2xggh"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://d23ist2xggh"]
 
 [ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_mrqaf"]
+[ext_resource type="PackedScene" uid="uid://c5uycfkekjm2p" path="res://Scenes/digital_pen_bullet.tscn" id="1_r0jmn"]
 [ext_resource type="Texture2D" uid="uid://d1bqdfu6i6kpn" path="res://Sprites/Weapons_Digital_Pen.png" id="2_7a1bi"]
 
 [resource]
 script = ExtResource("1_mrqaf")
-name = "digital_pen"
+name = "Digital Pen"
 sprite = ExtResource("2_7a1bi")
+projectile = ExtResource("1_r0jmn")
+description = "Draws a familiar to help the player attack the nearest enemies"
 metadata/_custom_type_script = "uid://bmmbiuub1mhi0"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1t5iryjuk14a"
+path="res://.godot/imported/SurvivorWave.ogg-db4909500c00dc5e8cb9047a8c5433b0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Sound Effects/SurvivorWave.ogg"
+dest_files=["res://.godot/imported/SurvivorWave.ogg-db4909500c00dc5e8cb9047a8c5433b0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

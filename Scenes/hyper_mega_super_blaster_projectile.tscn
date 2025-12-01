@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://3776nj4xbjdb"]
+
+[ext_resource type="Script" uid="uid://dk22k8pwdi0hl" path="res://Scripts/hyper_mega_super_blaster_projectile.gd" id="1_6v5kc"]
+[ext_resource type="Texture2D" uid="uid://vbvem0ej8yug" path="res://Sprites/Hyper_Gun_VFX-Sheet.png" id="2_6v5kc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v5kc"]
+size = Vector2(90, 568)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v5kc"]
+atlas = ExtResource("2_6v5kc")
+region = Rect2(0, 0, 568, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swbgp"]
+atlas = ExtResource("2_6v5kc")
+region = Rect2(568, 0, 568, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jegnn"]
+atlas = ExtResource("2_6v5kc")
+region = Rect2(1136, 0, 568, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sve7m"]
+atlas = ExtResource("2_6v5kc")
+region = Rect2(1704, 0, 568, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syn5y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v5kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swbgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jegnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sve7m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="Bullet" type="Area2D"]
+z_index = 2
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_6v5kc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(284, 7.1686677e-06)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_6v5kc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1, 5.5)
+sprite_frames = SubResource("SpriteFrames_syn5y")
+autoplay = "default"
+offset = Vector2(284, 0.5)

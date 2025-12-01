@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://l8v21ysio8b1"]
+
+[ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="1_0jsw6"]
+[ext_resource type="Texture2D" uid="uid://dqc6f3pdoda4n" path="res://Sprites/Object_Fighting_Character.png" id="2_hhbcq"]
+
+[resource]
+script = ExtResource("1_0jsw6")
+name = "Fighting Character"
+sprite = ExtResource("2_hhbcq")
+description = "Raises experience gains"
+metadata/_custom_type_script = "uid://b6ecq4xduwjlj"

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cl2penxgy36qm"]
+
+[ext_resource type="Texture2D" uid="uid://2x3w5aa44d4q" path="res://Sprites/LevelUp_Object_Frame.png" id="1_i5hj7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5hj7"]
+texture = ExtResource("1_i5hj7")
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_i5hj7")

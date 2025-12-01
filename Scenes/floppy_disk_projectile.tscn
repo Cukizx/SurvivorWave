@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://pk3738lbxnsv"]
+
+[ext_resource type="Script" uid="uid://bngi7y00am82w" path="res://Scripts/floppy_disk_projectile.gd" id="1_h63jt"]
+[ext_resource type="Texture2D" uid="uid://dr78gk7tv3bf8" path="res://Sprites/Antivirus_VFX-Sheet.png" id="2_x8xn1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfpha"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oilaj"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nikv7"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seywd"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwqr"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m458p"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ns2"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(5760, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpcfl"]
+atlas = ExtResource("2_x8xn1")
+region = Rect2(6720, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a13lo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfpha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oilaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nikv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seywd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prwqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m458p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ns2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpcfl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="FloppyDiskProjectile" type="Area2D"]
+script = ExtResource("1_h63jt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_a13lo")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

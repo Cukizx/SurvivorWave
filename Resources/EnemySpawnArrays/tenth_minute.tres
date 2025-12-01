@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyArray" load_steps=11 format=3 uid="uid://pmibl8k46amf"]
+
+[ext_resource type="PackedScene" uid="uid://dhefulsp2xnmm" path="res://Scenes/adware_enemy.tscn" id="1_nhw21"]
+[ext_resource type="PackedScene" uid="uid://cuu58npgnrt3m" path="res://Scenes/bacteriophage_enemy.tscn" id="2_4m4gk"]
+[ext_resource type="PackedScene" uid="uid://c4s8rr3cgwsrj" path="res://Scenes/ball_enemy.tscn" id="3_w6sme"]
+[ext_resource type="PackedScene" uid="uid://dcliao6g41v6o" path="res://Scenes/bug_enemy.tscn" id="4_fl0vk"]
+[ext_resource type="PackedScene" uid="uid://cnrs4x0ku7ga4" path="res://Scenes/comp_worm.tscn" id="5_5hvn0"]
+[ext_resource type="PackedScene" uid="uid://dxv4a1df3q5h3" path="res://Scenes/cthulian_enemy.tscn" id="6_52b3b"]
+[ext_resource type="PackedScene" uid="uid://iuqokfdpndi8" path="res://Scenes/fish_enemy.tscn" id="7_yto0v"]
+[ext_resource type="PackedScene" uid="uid://y508i7vk25mr" path="res://Scenes/monster_enemy.tscn" id="8_os7bi"]
+[ext_resource type="PackedScene" uid="uid://cdarh4trfxe8b" path="res://Scenes/rootkit_enemy.tscn" id="9_0dk5u"]
+[ext_resource type="Script" uid="uid://phjfocr6rx6n" path="res://Scripts/enemy_array.gd" id="10_cewtw"]
+
+[resource]
+script = ExtResource("10_cewtw")
+enemy_array = Array[PackedScene]([ExtResource("1_nhw21"), ExtResource("2_4m4gk"), ExtResource("3_w6sme"), ExtResource("4_fl0vk"), ExtResource("5_5hvn0"), ExtResource("6_52b3b"), ExtResource("7_yto0v"), ExtResource("8_os7bi"), ExtResource("9_0dk5u"), ExtResource("1_nhw21"), ExtResource("7_yto0v")])
+metadata/_custom_type_script = "uid://phjfocr6rx6n"

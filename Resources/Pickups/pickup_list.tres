@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PickupList" load_steps=5 format=3 uid="uid://nxe7xsgub8yc"]
+
+[ext_resource type="Script" uid="uid://dp57qmpwxaid0" path="res://Scripts/pickup.gd" id="1_wbdrw"]
+[ext_resource type="Resource" uid="uid://sgout2dn3smf" path="res://Resources/Pickups/drink.tres" id="3_57my1"]
+[ext_resource type="Resource" uid="uid://cik5dpyt8axaw" path="res://Resources/Pickups/stop_time.tres" id="4_078oa"]
+[ext_resource type="Script" uid="uid://bf3kdjnyvsnu6" path="res://Scripts/pickup_list.gd" id="5_pkukh"]
+
+[resource]
+script = ExtResource("5_pkukh")
+pickup_list = Array[ExtResource("1_wbdrw")]([ExtResource("3_57my1"), ExtResource("4_078oa")])
+metadata/_custom_type_script = "uid://bf3kdjnyvsnu6"

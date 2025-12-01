@@ -147,10 +147,6 @@ radius = 14.0
 radius = 5.0
 height = 18.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56vhr"]
-radius = 7.0
-height = 24.0
-
 [sub_resource type="Animation" id="Animation_0r56d"]
 length = 0.001
 tracks/0/type = "value"
@@ -188,21 +184,24 @@ _data = {
 &"hit_flash": SubResource("Animation_0ibox")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ibox"]
+radius = 17.029387
+
 [node name="Enemy" type="CharacterBody2D" groups=["big_worm"]]
 collision_layer = 4
-collision_mask = 12
+collision_mask = 13
 motion_mode = 1
 script = ExtResource("1_nfmgh")
 spawn_enemy_index = 1
 spawn_enemy_quantity = 3
 experience_dropped = ExtResource("2_y1lud")
-health = 150
+health = 20.0
 speed = 50.0
-contact_damage = 3
+contact_damage = 1.0
 inv_seconds = 0.1
 damage_numbers = true
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="DespawnOnScreenExit" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-420, -420, 840, 840)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -225,17 +224,21 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_nfmgh")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Collision__" type="CollisionShape2D" parent="CollisionCheckArea"]
-visible = false
-position = Vector2(-9, 3)
-shape = SubResource("CapsuleShape2D_56vhr")
-disabled = true
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_lg7v6")
 }
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="ScreenEntered" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CharmedEnemyCollision" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharmedEnemyCollision"]
+shape = SubResource("CircleShape2D_0ibox")
+
+[connection signal="screen_exited" from="DespawnOnScreenExit" to="." method="_on_despawn_on_screen_exit_screen_exited"]
 [connection signal="area_entered" from="CollisionCheckArea" to="." method="_on_collision_check_area_area_entered"]
+[connection signal="screen_entered" from="ScreenEntered" to="." method="_on_screen_entered_screen_entered"]
+[connection signal="screen_exited" from="ScreenEntered" to="." method="_on_screen_entered_screen_exited"]

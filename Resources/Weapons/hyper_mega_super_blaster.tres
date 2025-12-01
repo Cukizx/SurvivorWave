@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://plawk5072io3"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://plawk5072io3"]
 
+[ext_resource type="PackedScene" uid="uid://3776nj4xbjdb" path="res://Scenes/hyper_mega_super_blaster_projectile.tscn" id="1_3dqss"]
 [ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="1_5r3wp"]
 [ext_resource type="Texture2D" uid="uid://54xf8u2e78m" path="res://Sprites/Weapons_Hyper_Mega_Super_Blaster.png" id="2_rxfci"]
 
 [resource]
 script = ExtResource("1_5r3wp")
-name = "hyper_mega_super_blaster"
+name = "Hyper Mega Super Blaster"
 sprite = ExtResource("2_rxfci")
+projectile = ExtResource("1_3dqss")
+description = "shoots an energy ray across the screen"
 metadata/_custom_type_script = "uid://bmmbiuub1mhi0"
