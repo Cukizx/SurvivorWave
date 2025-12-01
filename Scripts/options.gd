@@ -39,6 +39,6 @@ func load_config():
 	var err = config.load(CONFIG_PATH)
 	if err != OK:
 		return
-	fullscreen_toggle(config.get_value("Window mode", "Mode", 0))
+	fullscreen_toggle(config.get_value("Window mode", "Mode", 3))
 	for audio_channel in config.get_section_keys("Sound Volume").size():
 		set_volume(audio_channel, config.get_value("Sound Volume", config.get_section_keys("Sound Volume")[audio_channel], 100))
