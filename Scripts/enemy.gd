@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			direction = self.global_position.direction_to(target.global_position)
 		else:
 			$AnimatedSprite2D.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
-			if self.position.distance_to(Globals.player.global_position) < 100:
+			if self.global_position.distance_to(Globals.player.global_position) < 100:
 				direction = self.global_position.direction_to(Globals.player.global_position)
 				targeting_player = true
 			else:
