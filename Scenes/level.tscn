@@ -272,7 +272,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2/Panel"]
+[node name="TextureProgressBarWon" type="TextureProgressBar" parent="CanvasLayer2/Panel"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 5
@@ -308,7 +308,7 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer3/Panel2"]
+[node name="TextureProgressBarLost" type="TextureProgressBar" parent="CanvasLayer3/Panel2"]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 5
@@ -422,6 +422,8 @@ position = Vector2(739, -1505)
 [connection signal="timeout" from="CanvasLayer/TextureProgressBar/Time/Timer" to="CanvasLayer/TextureProgressBar" method="_on_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/TextureProgressBar/Time/Timer" to="CanvasLayer/TextureProgressBar/Time" method="_on_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/TextureProgressBar/Time/Timer" to="Enemy Spawner" method="_on_clock_timer_timeout"]
+[connection signal="value_changed" from="CanvasLayer2/Panel/TextureProgressBarWon" to="CanvasLayer/TextureProgressBar" method="_on_texture_progress_bar_value_changed"]
+[connection signal="value_changed" from="CanvasLayer3/Panel2/TextureProgressBarLost" to="CanvasLayer/TextureProgressBar" method="_on_texture_progress_bar_lost_value_changed"]
 [connection signal="experience_gained" from="PlayerSpawner" to="CanvasLayer/ExperienceBar" method="_on_player_spawner_experience_gained"]
 [connection signal="inventory_changed" from="PlayerSpawner" to="CanvasLayer/OnScreenInventory" method="_on_player_spawner_inventory_changed"]
 [connection signal="inventory_changed" from="PlayerSpawner" to="Weapon Manager" method="_on_player_spawner_inventory_changed"]

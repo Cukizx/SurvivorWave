@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://du58fd4rpmw62"]
+[gd_scene load_steps=69 format=3 uid="uid://du58fd4rpmw62"]
 
 [ext_resource type="Script" uid="uid://3ehg8sbstnu3" path="res://Scripts/level_up_screen.gd" id="1_j82rw"]
 [ext_resource type="Script" uid="uid://bmmbiuub1mhi0" path="res://Scripts/weapon.gd" id="2_1t0d7"]
@@ -10,12 +10,16 @@
 [ext_resource type="Resource" uid="uid://bvbcs4m3rnwad" path="res://Resources/Weapons/plastic_roscoe.tres" id="8_nsgq5"]
 [ext_resource type="Texture2D" uid="uid://b5qywthwk1cty" path="res://Sprites/LevelUp_Frame.png" id="9_1db3c"]
 [ext_resource type="Resource" uid="uid://jc55sxiulp3o" path="res://Resources/Player/player_inventory.tres" id="9_6l54v"]
+[ext_resource type="Resource" uid="uid://cxpo8gnxubne0" path="res://Resources/Weapons/controller.tres" id="9_e3r73"]
 [ext_resource type="Script" uid="uid://b6ecq4xduwjlj" path="res://Scripts/item.gd" id="9_e7t7j"]
 [ext_resource type="Theme" uid="uid://2tyx6xvdw0ai" path="res://Themes/pause_menu_background.tres" id="9_ngs35"]
+[ext_resource type="Resource" uid="uid://ek7bohsumnb" path="res://Resources/Weapons/floppy_disk.tres" id="10_cfupd"]
 [ext_resource type="Resource" uid="uid://cu700teetaqra" path="res://Resources/Objects/amplifier.tres" id="10_dsqsj"]
+[ext_resource type="Resource" uid="uid://hb1ol1slvxmj" path="res://Resources/Weapons/headphones.tres" id="11_1m0ai"]
 [ext_resource type="Resource" uid="uid://fy70hpvwfnpx" path="res://Resources/Objects/cassette.tres" id="11_hjxjc"]
 [ext_resource type="Texture2D" uid="uid://bfnvn5donu6g5" path="res://Sprites/LevelUp_Title.png" id="11_nsgq5"]
 [ext_resource type="Texture2D" uid="uid://cfwub17tifol" path="res://Sprites/LevelUp_WeaponBox.png" id="12_5rai7"]
+[ext_resource type="Resource" uid="uid://661lec5ex4kg" path="res://Resources/Weapons/trident.tres" id="12_ex2y4"]
 [ext_resource type="Resource" uid="uid://crv1rl0r7cxoc" path="res://Resources/Objects/disk_reader.tres" id="12_y0tt3"]
 [ext_resource type="Theme" uid="uid://cl2penxgy36qm" path="res://Themes/level_up_screen_weapon_frame.tres" id="13_fe62h"]
 [ext_resource type="FontFile" uid="uid://ko4hv3ppykkt" path="res://Fonts/upheavtt.ttf" id="13_g6lv0"]
@@ -132,7 +136,7 @@ grow_vertical = 2
 script = ExtResource("1_j82rw")
 inventory_slots = [NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel2/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel3/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel4/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel5/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel6/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel7/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel8/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel9/Sprite2D"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/GridContainer/Panel10/Sprite2D")]
 inventory_slots_level = [NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer/HBoxContainer/GridContainer"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer/HBoxContainer/GridContainer2"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer/HBoxContainer/GridContainer3"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer/HBoxContainer/GridContainer4"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer/HBoxContainer/GridContainer5"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer2/HBoxContainer/GridContainer"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer2/HBoxContainer/GridContainer2"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer2/HBoxContainer/GridContainer3"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer2/HBoxContainer/GridContainer4"), NodePath("PanelContainer/MarginContainer/VBoxContainer/Panel3/Panel/PanelContainer2/HBoxContainer/GridContainer5")]
-weapons = Array[ExtResource("2_1t0d7")]([ExtResource("3_1db3c"), ExtResource("4_x5jup"), ExtResource("5_0q01g"), ExtResource("6_yatqe"), ExtResource("7_ngs35"), ExtResource("8_nsgq5")])
+weapons = Array[ExtResource("2_1t0d7")]([ExtResource("3_1db3c"), ExtResource("4_x5jup"), ExtResource("5_0q01g"), ExtResource("6_yatqe"), ExtResource("7_ngs35"), ExtResource("8_nsgq5"), ExtResource("9_e3r73"), ExtResource("10_cfupd"), ExtResource("11_1m0ai"), ExtResource("12_ex2y4")])
 items = Array[ExtResource("9_e7t7j")]([ExtResource("10_dsqsj"), ExtResource("11_hjxjc"), ExtResource("12_y0tt3"), ExtResource("13_kyyb2"), ExtResource("14_qknf2"), ExtResource("15_wydta"), ExtResource("16_vhkwq"), ExtResource("17_viauh"), ExtResource("18_8unvw"), ExtResource("19_2linc")])
 player_inventory = ExtResource("9_6l54v")
 weapon_name = [NodePath("PanelContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Panel/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/WeaponName1"), NodePath("PanelContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Panel2/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/WeaponName2"), NodePath("PanelContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Panel3/HBoxContainer/MarginContainer/MarginContainer/VBoxContainer/WeaponName3")]
